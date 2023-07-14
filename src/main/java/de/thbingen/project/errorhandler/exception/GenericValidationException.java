@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GenericValidationException extends Exception {
     @Serial
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -5719032261146450085L;
 
     private final List<String> errors;
 
