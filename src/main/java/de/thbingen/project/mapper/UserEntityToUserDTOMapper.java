@@ -10,13 +10,11 @@ import java.util.List;
 import java.util.Set;
 
 public interface UserEntityToUserDTOMapper {
-    String mapNameEmbeddableToNameDTO(String name);
+    String mapFirstAndLastNameToFullName(String firstName, String lastName);
 
-    String decodePassword(String password);
+    String decodeBase64EncodedPassword(String password);
 
-    String mapGenderEnumToGenderString(UserEntity.Gender gender);
-
-    List<String> mapPhoneNumbersToPhoneNumbersList(String phoneNumbers);
+    String mapPhoneNumbersListToPhoneNumbersString(List<String> phoneNumbers);
 
     Set<Long> mapRoleEntitiesToRoleIds(Set<RoleEntity> roleEntities);
 

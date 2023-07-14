@@ -11,19 +11,19 @@ import java.util.List;
 import java.util.Set;
 
 public interface UserDTOToUserEntityMapper {
-    String mapNameDTOToNameEmbeddable(String firstName, String lastName);
+    String mapNameToFirstName(String name);
+
+    String mapNameToLastName(String name);
 
     String encodePassword(String password);
 
-    UserEntity.Gender mapGenderStringToGenderEnum(String gender);
-
-    String mapPhoneNumbersListToPhoneNumbers(List<String> phoneNumbersList);
+    List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList);
 
     Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds);
 
     List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds);
 
-    LocalDateTime mapStringToLocalDateTime(String dateTime);
+    LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime);
 
     Address mapAddressDTOToAddressEmbeddable(String street, String city, String state, String zip);
 
