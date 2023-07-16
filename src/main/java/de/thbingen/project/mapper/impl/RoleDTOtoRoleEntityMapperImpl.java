@@ -8,6 +8,7 @@ import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -17,7 +18,7 @@ public class RoleDTOtoRoleEntityMapperImpl implements RoleDTOtoRoleEntityMapper 
 
     @Override
     public Set<UserEntity> mapUserIdsToUserEntities(Set<Long> userIds) {
-        return (Set<UserEntity>) userRepository.findAllById(userIds);
+        return new HashSet<>(userRepository.findAllById(userIds));
     }
 
     @Override
