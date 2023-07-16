@@ -13,10 +13,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -47,12 +45,12 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
 
     @Override
     public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return (Set<RoleEntity>) roleRepository.findAllById(roleIds);
+        return new HashSet<>(roleRepository.findAllById(roleIds));
     }
 
     @Override
     public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
-        return (List<OrderEntity>) orderRepository.findAllById(orderIds);
+        return orderRepository.findAllById(orderIds);
     }
 
      @Override
