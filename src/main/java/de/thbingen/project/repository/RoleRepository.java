@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface RoleRepository extends CrudRepository<RoleRepository, Long> {
+public interface RoleRepository extends CrudRepository<RoleEntity, Long> {
     RoleEntity findRoleByName(String roleName);
 
     List<UserEntity> findUsersByRoleContains(RoleEntity role);
