@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class RoleEntityToRoleDTOMapperImpl implements RoleEntityToRoleDTOMapper {
-    private final UserRepository userRepository;
 
     @Override
     public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities) {
@@ -24,10 +23,8 @@ public class RoleEntityToRoleDTOMapperImpl implements RoleEntityToRoleDTOMapper 
 
     @Override
     public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity) {
-        return RoleDTO.builder()
-                .id(roleEntity.getId())
-                .name(roleEntity.getName())
-                .userIds(mapUserEntitiesToUserIds(userRepository.findAllByRoleEntitiesContains(roleEntity)))
-                .build();
+        return new RoleDTO(roleEntity.getId(),
+                roleEntity.getName(),
+                mapUserEntitiesToUserIds(roleEntity.getUsers()));
     }
 }

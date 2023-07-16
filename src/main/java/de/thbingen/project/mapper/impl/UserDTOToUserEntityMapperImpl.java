@@ -13,9 +13,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -45,12 +47,12 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
 
     @Override
     public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return roleRepository.findAllById(roleIds);
+        return (Set<RoleEntity>) roleRepository.findAllById(roleIds);
     }
 
     @Override
     public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
-        return orderRepository.findAllById(orderIds);
+        return (List<OrderEntity>) orderRepository.findAllById(orderIds);
     }
 
      @Override
@@ -67,20 +69,16 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
     public UserEntity mapUserDTOToUserEntity(UserDTO userDTO) {
         return new UserEntity(
                 userDTO.getId(),
-                userDTO.getEmail(),
-                userDTO.getPassword(),
                 mapNameToFirstName(userDTO.getName()),
                 mapNameToLastName(userDTO.getName()),
+                userDTO.getEmail(),
+                mapAddressDTOToAddressEmbeddable(userDTO.getStreet(), userDTO.getCity(), userDTO.getState(), userDTO.getZip()),
                 mapPhoneNumbersListToPhoneNumbers(userDTO.getPhoneNumbers()),
-                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
-                mapOrderIdsToOrderEntities(userDTO.getOrderIds()),
+                UserEntity.Gender.valueOf(userDTO.getGender()),
                 mapDateOfBirthStringToLocalDateTime(userDTO.getDateOfBirth()),
-                mapAddressDTOToAddressEmbeddable(
-                        userDTO.getAddress().getStreet(),
-                        userDTO.getAddress().getCity(),
-                        userDTO.getAddress().getState(),
-                        userDTO.getAddress().getZip()
-                ));
+                mapOrderIdsToOrderEntities(userDTO.getOrderIds()),
+                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
+                encodePassword(userDTO.getPassword()));
     }
 
 }

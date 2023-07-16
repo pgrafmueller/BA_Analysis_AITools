@@ -51,15 +51,16 @@ public class UserEntityToUserDTOMapperImpl implements UserEntityToUserDTOMapper 
 
     @Override
     public UserDTO mapUserEntityToUserDTO(UserEntity userEntity) {
-        return UserDTO.builder()
-                .id(userEntity.getId())
-                .fullName(mapFirstAndLastNameToFullName(userEntity.getFirstName(), userEntity.getLastName()))
-                .email(userEntity.getEmail())
-                .password(decodeBase64EncodedPassword(userEntity.getPassword()))
-                .phoneNumbers(mapPhoneNumbersListToPhoneNumbersString(userEntity.getPhoneNumbers()))
-                .dateOfBirth(mapLocalDateTimeToString(userEntity.getDateOfBirth()))
-                .roles(mapRoleEntitiesToRoleIds(userEntity.getRoles()))
-                .orders(mapOrderEntitiesToOrderIds(userEntity.getOrders()))
-                .build();
+        return new UserDTO(
+                userEntity.getId(),
+                mapFirstAndLastNameToFullName(userEntity.getFirstName(), userEntity.getLastName()),
+                userEntity.getAddress().getStreet(), userEntity.getAddress().getCity(),
+                userEntity.getAddress().getState(), userEntity.getAddress().getZip(),
+                userEntity.getEmail(), mapPhoneNumbersListToPhoneNumbersString(userEntity.getPhoneNumbers()),
+                userEntity.getGender().toString(),
+                mapLocalDateTimeToString(userEntity.getDateOfBirth()),
+                mapOrderEntitiesToOrderIds(userEntity.getOrders()),
+                mapRoleEntitiesToRoleIds(userEntity.getRoles()),
+                decodeBase64EncodedPassword(userEntity.getHashedPassword()));
     }
 }

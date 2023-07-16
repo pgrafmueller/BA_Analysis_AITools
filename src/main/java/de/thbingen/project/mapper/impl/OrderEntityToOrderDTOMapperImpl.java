@@ -22,10 +22,9 @@ public class OrderEntityToOrderDTOMapperImpl implements OrderEntityToOrderDTOMap
 
     @Override
     public OrderDTO mapOrderEntityToOrderDTO(OrderEntity orderEntity) {
-        return OrderDTO.builder()
-                .id(orderEntity.getId())
-                .name(orderEntity.getName())
-                .userIds(mapUserEntitiesToUserIds(orderRepository.findAllByOrderEntitiesContains(orderEntity)))
-                .build();
+        return new OrderDTO(orderEntity.getId(),
+                orderEntity.getItemName(),
+                orderEntity.getAmount(),
+                mapUserEntityToUserId(orderEntity.getUser()));
     }
 }
