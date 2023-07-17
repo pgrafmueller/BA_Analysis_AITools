@@ -2,6 +2,7 @@ package de.thbingen.project.service;
 
 import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.dto.UserDTO;
+import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
 
 import javax.management.relation.Role;
@@ -18,5 +19,5 @@ public interface RoleService {
 
     void deleteRole(Long id);
 
-    List<Role> getRolesContainingUser(UserEntity userEntity);
+    List<RoleEntity> getRolesContainingUser(UserEntity userEntity);
 }

@@ -1,6 +1,7 @@
 package de.thbingen.project.service;
 
 import de.thbingen.project.model.dto.OrderDTO;
+import de.thbingen.project.model.entity.UserEntity;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface OrderService {
 
     void deleteOrder(Long id);
 
-    List<OrderDTO> getOrdersByUserId(Long userId);
+    List<OrderDTO> getOrdersByUser(UserEntity userEntity);
 }
