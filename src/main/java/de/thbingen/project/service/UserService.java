@@ -7,13 +7,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface UserService {
-    UserEntity saveUser(UserEntity userEntity);
+    UserEntity saveUser(UserDTO userDTO);
 
     List<UserEntity> findAllUsers();
 
     UserEntity findUserById(Long id);
 
-    UserEntity updateUser(UserEntity userEntity);
+    UserEntity updateUser(UserDTO userDTO);
 
     void deleteUser(Long id);
 
