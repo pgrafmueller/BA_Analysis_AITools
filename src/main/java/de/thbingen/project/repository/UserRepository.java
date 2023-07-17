@@ -7,16 +7,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    UserEntity findUserByEmail(String email);
+    UserEntity findByEmail(String email);
 
-    List<UserEntity> findUsersByRoleName(String roleName);
+    List<UserEntity> findByRolesContaining(RoleEntity roleEntity);
 
-    List<UserEntity> findUsersByDateOfBirthBetween(LocalDate startDate, LocalDate endDate);
-
-    Set<UserEntity> findAllByRoleEntitiesContains(RoleEntity roleEntity);
+    List<UserEntity> findAllByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 }
