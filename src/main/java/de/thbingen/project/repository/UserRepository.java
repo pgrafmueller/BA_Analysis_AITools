@@ -17,5 +17,5 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     List<UserEntity> findByRolesContaining(RoleEntity roleEntity);
 
-    List<UserEntity> findAllByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
+    List<UserEntity> findByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

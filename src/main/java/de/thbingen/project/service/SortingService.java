@@ -1,33 +1,33 @@
 package de.thbingen.project.service;
 
-import de.thbingen.project.model.dto.OrderDTO;
-import de.thbingen.project.model.dto.RoleDTO;
-import de.thbingen.project.model.dto.UserDTO;
+import de.thbingen.project.model.entity.OrderEntity;
+import de.thbingen.project.model.entity.RoleEntity;
+import de.thbingen.project.model.entity.UserEntity;
 
 import java.util.List;
 
 public interface SortingService {
-    List<UserDTO> sortUsersByName(List<UserDTO> users);
+    List<UserEntity> sortUsersByName(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByEmail(List<UserDTO> users);
+    //sort users alphabetically by email
+    List<UserEntity> sortUsersByEmail(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByDateOfBirth(List<UserDTO> users);
+    List<UserEntity> sortUsersByDateOfBirthAsc(List<UserEntity> users);
+    List<UserEntity> sortUsersByDateOfBirthDesc(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByRoleName(List<UserDTO> users);
+    List<UserEntity> sortUsersByStreet(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByStreetName(List<UserDTO> users);
+    List<UserEntity> sortUsersByCity(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByCity(List<UserDTO> users);
+    List<UserEntity> sortUsersByState(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByState(List<UserDTO> users);
+    List<UserEntity> sortUsersByZip(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByCountry(List<UserDTO> users);
+    List<UserEntity> sortUsersByGender(List<UserEntity> users);
 
-    List<UserDTO> sortUsersByZipCode(List<UserDTO> users);
+    List<RoleEntity> sortRolesByName(List<RoleEntity> roles);
 
-    List<RoleDTO> sortRolesByName(List<RoleDTO> roles);
+    List<OrderEntity> sortOrdersByUserName(List<OrderEntity> orders);
 
-    List<OrderDTO> sortOrdersByDate(List<OrderDTO> orders);
-
-    List<OrderDTO> sortOrdersByTotalAmount(List<OrderDTO> orders);
+    List<OrderEntity> sortOrdersByAmount(List<OrderEntity> orders);
 }
