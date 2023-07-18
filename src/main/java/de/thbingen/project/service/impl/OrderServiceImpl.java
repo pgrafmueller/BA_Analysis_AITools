@@ -1,16 +1,49 @@
 package de.thbingen.project.service.impl;
 
 import de.thbingen.project.mapper.OrderDTOtoOrderEntityMapper;
-import de.thbingen.project.mapper.OrderEntityToOrderDTOMapper;
+import de.thbingen.project.model.dto.OrderDTO;
+import de.thbingen.project.model.entity.OrderEntity;
+import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
-import de.thbingen.project.service.RoleService;
+import de.thbingen.project.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
-public class OrderServiceImpl implements RoleService {
-    private final OrderEntityToOrderDTOMapper orderEntityToOrderDTOMapper;
+public class OrderServiceImpl implements OrderService {
     private final OrderDTOtoOrderEntityMapper orderDTOtoOrderEntityMapper;
     private final OrderRepository orderRepository;
+
+    @Override
+    public OrderEntity createOrder(OrderDTO orderDTO) {
+        return orderRepository.save(orderDTOtoOrderEntityMapper.mapOrderDTOtoOrderEntity(orderDTO));
+    }
+
+    @Override
+    public List<OrderEntity> getAllOrders() {
+        return orderRepository.findAll();
+    }
+
+    @Override
+    public OrderEntity getOrderById(Long id) {
+        return orderRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public OrderEntity updateOrder(OrderDTO orderDTO) {
+        return orderRepository.save(orderDTOtoOrderEntityMapper.mapOrderDTOtoOrderEntity(orderDTO));
+    }
+
+    @Override
+    public void deleteOrder(Long id) {
+        orderRepository.deleteById(id);
+    }
+
+    @Override
+    public List<OrderEntity> getOrdersByUser(UserEntity userEntity) {
+        return orderRepository.findAllByUser(userEntity);
+    }
 }
