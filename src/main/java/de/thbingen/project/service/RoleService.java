@@ -9,13 +9,13 @@ import javax.management.relation.Role;
 import java.util.List;
 
 public interface RoleService {
-    RoleDTO createRole(RoleDTO roleDTO);
+    RoleEntity createRole(RoleDTO roleDTO);
 
-    List<RoleDTO> getAllRoles();
+    List<RoleEntity> getAllRoles();
 
-    RoleDTO getRoleById(Long id);
+    RoleEntity getRoleById(Long id);
 
-    RoleDTO updateRole(RoleDTO roleDTO);
+    RoleEntity updateRole(RoleDTO roleDTO);
 
     void deleteRole(Long id);
 

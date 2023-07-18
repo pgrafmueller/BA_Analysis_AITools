@@ -19,10 +19,10 @@ public interface UserService {
 
     void deleteUser(Long id);
 
-    UserDTO getUserByEmail(String email);
+    UserEntity getUserByEmail(String email);
 
-    List<UserDTO> getUsersByRole(RoleEntity roleEntity);
+    List<UserEntity> getUsersByRole(RoleEntity roleEntity);
 
-    List<UserDTO> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
+    List<UserEntity> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 
 }
