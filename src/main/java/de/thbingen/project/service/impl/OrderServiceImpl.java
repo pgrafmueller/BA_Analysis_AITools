@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public OrderEntity createOrder(OrderDTO orderDTO) {
+    public OrderEntity saveOrder(OrderDTO orderDTO) {
         return orderRepository.save(orderDTOtoOrderEntityMapper.mapOrderDTOtoOrderEntity(orderDTO));
     }
 
