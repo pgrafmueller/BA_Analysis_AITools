@@ -15,7 +15,7 @@ import java.util.Set;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
 
-    List<UserEntity> findByRolesContaining(RoleEntity roleEntity);
+    List<UserEntity> findAllByRolesContaining(RoleEntity roleEntity);
 
-    List<UserEntity> findByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
+    List<UserEntity> findAllByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 }
