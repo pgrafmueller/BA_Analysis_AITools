@@ -25,7 +25,7 @@ public interface UserDTOToUserEntityMapper {
 
     LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime);
 
-    Address mapAddressDTOToAddressEmbeddable(String street, String city, String state, String zip);
+    Address mapAddressDTOtoAddressEmbeddable(String street, String city, String state, String zip);
 
-    UserEntity mapUserDTOToUserEntity(UserDTO userDTO);
+    UserEntity mapUserDTOtoUserEntity(UserDTO userDTO);
 }

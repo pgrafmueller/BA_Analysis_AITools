@@ -7,5 +7,5 @@ import de.thbingen.project.model.entity.UserEntity;
 public interface OrderDTOtoOrderEntityMapper {
     UserEntity mapUserIdToUserEntity(long userId);
 
-    OrderEntity mapOrderDTOToOrderEntity(OrderDTO orderDTO);
+    OrderEntity mapOrderDTOtoOrderEntity(OrderDTO orderDTO);
 }
