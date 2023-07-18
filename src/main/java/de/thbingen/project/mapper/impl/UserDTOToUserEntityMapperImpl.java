@@ -8,14 +8,11 @@ import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
-import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -59,18 +56,18 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
     }
 
     @Override
-    public Address mapAddressDTOToAddressEmbeddable(String street, String city, String state, String zip) {
+    public Address mapAddressDTOtoAddressEmbeddable(String street, String city, String state, String zip) {
         return new Address(street, city, state, zip);
     }
 
     @Override
-    public UserEntity mapUserDTOToUserEntity(UserDTO userDTO) {
+    public UserEntity mapUserDTOtoUserEntity(UserDTO userDTO) {
         return new UserEntity(
                 userDTO.getId(),
                 mapNameToFirstName(userDTO.getName()),
                 mapNameToLastName(userDTO.getName()),
                 userDTO.getEmail(),
-                mapAddressDTOToAddressEmbeddable(userDTO.getStreet(), userDTO.getCity(), userDTO.getState(), userDTO.getZip()),
+                mapAddressDTOtoAddressEmbeddable(userDTO.getStreet(), userDTO.getCity(), userDTO.getState(), userDTO.getZip()),
                 mapPhoneNumbersListToPhoneNumbers(userDTO.getPhoneNumbers()),
                 UserEntity.Gender.valueOf(userDTO.getGender()),
                 mapDateOfBirthStringToLocalDateTime(userDTO.getDateOfBirth()),

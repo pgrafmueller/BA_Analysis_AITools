@@ -19,24 +19,21 @@ public class RoleServiceImpl implements RoleService {
     private final RoleDTOtoRoleEntityMapper roleDTOtoRoleEntityMapper;
     private final RoleEntityToRoleDTOMapper roleEntityToRoleDTOMapper;
     private final RoleRepository roleRepository;
-
     @Override
-    public RoleDTO createRole(RoleDTO roleDTO) {
-        return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(
-                roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOToRoleEntity(roleDTO)));
+    public RoleEntity createRole(RoleDTO roleDTO) {
+        return roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOtoRoleEntity(roleDTO));
     }
     @Override
-    public List<RoleDTO> getAllRoles() {
-        return roleEntityToRoleDTOMapper.mapRoleEntitiesToRoleDTOs(roleRepository.findAll());
+    public List<RoleEntity> getAllRoles() {
+        return roleRepository.findAll();
     }
     @Override
-    public RoleDTO getRoleById(Long id) {
-        return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(roleRepository.findById(id).get());
+    public RoleEntity getRoleById(Long id) {
+        return roleRepository.findById(id).orElse(null);
     }
     @Override
-    public RoleDTO updateRole(RoleDTO roleDTO) {
-        return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(
-                roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOToRoleEntity(roleDTO)));
+    public RoleEntity updateRole(RoleDTO roleDTO) {
+        return roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOtoRoleEntity(roleDTO));
     }
     @Override
     public void deleteRole(Long id) {
@@ -44,6 +41,6 @@ public class RoleServiceImpl implements RoleService {
     }
     @Override
     public List<RoleEntity> getRolesContainingUser(UserEntity userEntity) {
-        return roleRepository.findByUsersContaining(userEntity);
+        return roleRepository.findAllByUsersContaining(userEntity);
     }
 }

@@ -3,6 +3,7 @@ package de.thbingen.project.service.impl;
 import de.thbingen.project.mapper.OrderDTOtoOrderEntityMapper;
 import de.thbingen.project.mapper.OrderEntityToOrderDTOMapper;
 import de.thbingen.project.model.dto.OrderDTO;
+import de.thbingen.project.model.entity.OrderEntity;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.service.OrderService;
@@ -19,30 +20,29 @@ public class OrderServiceImpl implements OrderService {
     private final OrderDTOtoOrderEntityMapper orderDTOtoOrderEntityMapper;
     private final OrderRepository orderRepository;
     @Override
-    public OrderDTO createOrder(OrderDTO orderDTO) {
-        return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(
-                orderRepository.save(orderDTOtoOrderEntityMapper.mapOrderDTOToOrderEntity(orderDTO)));
-    }
-
-    @Override
-    public List<OrderDTO> getAllOrders(){
-        return orderEntityToOrderDTOMapper.mapOrderEntitiesToOrderDTOs(orderRepository.findAll());
+    public OrderEntity createOrder(OrderDTO orderDTO) {
+        OrderEntity orderEntity = orderDTOtoOrderEntityMapper.mapOrderDTOtoOrderEntity(orderDTO);
+        return orderRepository.save(orderEntity);
     }
     @Override
-    public OrderDTO getOrderById(Long id) {
-        return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(orderRepository.findById(id).get());
+    public List<OrderEntity> getAllOrders() {
+        return orderRepository.findAll();
     }
     @Override
-    public OrderDTO updateOrder(OrderDTO orderDTO){
-        return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(
-                orderRepository.save(orderDTOtoOrderEntityMapper.mapOrderDTOToOrderEntity(orderDTO)));
+    public OrderEntity getOrderById(Long id) {
+        return orderRepository.findById(id).orElse(null);
     }
     @Override
-    public void deleteOrder(Long id){
+    public OrderEntity updateOrder(OrderDTO orderDTO) {
+        OrderEntity orderEntity = orderDTOtoOrderEntityMapper.mapOrderDTOtoOrderEntity(orderDTO);
+        return orderRepository.save(orderEntity);
+    }
+    @Override
+    public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
     @Override
-    public List<OrderDTO> getOrdersByUser(UserEntity userEntity){
-        return orderEntityToOrderDTOMapper.mapOrderEntitiesToOrderDTOs(orderRepository.findByUser(userEntity));
+    public List<OrderEntity> getOrdersByUser(UserEntity userEntity) {
+        return orderRepository.findAllByUser(userEntity);
     }
 }
