@@ -18,7 +18,7 @@ public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
 
     @Override
-    public RoleEntity createRole(RoleDTO roleDTO) {
+    public RoleEntity saveRole(RoleDTO roleDTO) {
         return roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOtoRoleEntity(roleDTO));
     }
 

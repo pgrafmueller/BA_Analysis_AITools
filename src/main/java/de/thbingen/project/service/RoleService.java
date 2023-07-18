@@ -7,7 +7,7 @@ import de.thbingen.project.model.entity.UserEntity;
 import java.util.List;
 
 public interface RoleService {
-    RoleEntity createRole(RoleDTO roleDTO);
+    RoleEntity saveRole(RoleDTO roleDTO);
 
     List<RoleEntity> getAllRoles();
 
