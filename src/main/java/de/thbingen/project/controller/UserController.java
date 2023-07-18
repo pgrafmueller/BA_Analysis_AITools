@@ -5,6 +5,7 @@ import de.thbingen.project.model.embeddable.Address;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UserController {
@@ -24,6 +25,6 @@ public interface UserController {
 
     List<UserDTO> getUsersByRoleName(String roleName);
 
-    List<UserDTO> getUsersByDateOfBirthBetween(LocalDate startDate, LocalDate endDate);
+    List<UserDTO> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 
 }
