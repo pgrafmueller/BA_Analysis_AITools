@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface RoleRepository extends JpaRepository<RoleEntity, Long> {
-    RoleEntity findRoleByName(String roleName);
+    RoleEntity findByName(String roleName);
 
-    List<UserEntity> findUsersByRoleContains(RoleEntity role);
+    List<RoleEntity> findAllByUsersContaining(UserEntity userEntity);
 }

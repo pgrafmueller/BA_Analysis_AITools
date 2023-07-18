@@ -1,26 +1,27 @@
 package de.thbingen.project.service;
 
 import de.thbingen.project.model.dto.UserDTO;
+import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UserService {
-    UserEntity saveUser(UserEntity userEntity);
+    UserEntity saveUser(UserDTO userDTO);
 
-    List<UserEntity> findAllUsers();
+    List<UserEntity> getAllUsers();
 
-    UserEntity findUserById(Long id);
+    UserEntity getUserById(Long id);
 
-    UserEntity updateUser(UserEntity userEntity);
+    UserEntity updateUser(UserDTO userDTO);
 
     void deleteUser(Long id);
 
-    UserDTO getUserByEmail(String email);
+    UserEntity getUserByEmail(String email);
 
-    List<UserDTO> getUsersByRoleName(String roleName);
+    List<UserEntity> getUsersByRole(RoleEntity roleEntity);
 
-    List<UserDTO> getUsersByDateOfBirthBetween(LocalDate startDate, LocalDate endDate);
+    List<UserEntity> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 
 }

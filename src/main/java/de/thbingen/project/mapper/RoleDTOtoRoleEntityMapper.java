@@ -9,5 +9,5 @@ import java.util.Set;
 public interface RoleDTOtoRoleEntityMapper {
     Set<UserEntity> mapUserIdsToUserEntities(Set<Long> userIds);
 
-    RoleEntity mapRoleDTOToRoleEntity(RoleDTO roleDTO);
+    RoleEntity mapRoleDTOtoRoleEntity(RoleDTO roleDTO);
 }

@@ -1,19 +1,21 @@
 package de.thbingen.project.service;
 
 import de.thbingen.project.model.dto.OrderDTO;
+import de.thbingen.project.model.entity.OrderEntity;
+import de.thbingen.project.model.entity.UserEntity;
 
 import java.util.List;
 
 public interface OrderService {
-    OrderDTO createOrder(OrderDTO orderDTO);
+    OrderEntity createOrder(OrderDTO orderDTO);
 
-    List<OrderDTO> getAllOrders();
+    List<OrderEntity> getAllOrders();
 
-    OrderDTO getOrderById(Long id);
+    OrderEntity getOrderById(Long id);
 
-    OrderDTO updateOrder(OrderDTO orderDTO);
+    OrderEntity updateOrder(OrderDTO orderDTO);
 
     void deleteOrder(Long id);
 
-    List<OrderDTO> getOrdersByUserId(Long userId);
+    List<OrderEntity> getOrdersByUser(UserEntity userEntity);
 }
