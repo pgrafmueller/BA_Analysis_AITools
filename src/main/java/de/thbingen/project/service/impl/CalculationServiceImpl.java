@@ -16,22 +16,5 @@ public class CalculationServiceImpl implements CalculationService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    //accumulated amount of one orders of all users
-    @Override
-    public double calculateTotalOrderAmount(OrderDTO orderDTO) {
-        return orderRepository.findAll().stream()
-                .filter(orderEntity -> orderEntity.getItemName().equals(orderDTO.getItemName()))
-                .mapToDouble(orderEntity -> orderEntity.getAmount())
-                .sum();
-    }
-
-    @Override
-    public double calculateAverageOrderAmountForUser(UserDTO userDTO){
-        return orderRepository.findAll().stream()
-                .filter(orderEntity -> orderEntity.getUser().getId() == userDTO.getId())
-                .mapToDouble(orderEntity -> orderEntity.getAmount())
-                .average()
-                .orElse(0);
-    }
-
+    
 }
