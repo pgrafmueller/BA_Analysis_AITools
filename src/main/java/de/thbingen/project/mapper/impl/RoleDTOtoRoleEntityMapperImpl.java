@@ -22,7 +22,7 @@ public class RoleDTOtoRoleEntityMapperImpl implements RoleDTOtoRoleEntityMapper 
     }
 
     @Override
-    public RoleEntity mapRoleDTOToRoleEntity(RoleDTO roleDTO) {
+    public RoleEntity mapRoleDTOtoRoleEntity(RoleDTO roleDTO) {
         return new RoleEntity(roleDTO.getId(),
                 roleDTO.getName(),
                 mapUserIdsToUserEntities(roleDTO.getUserIds()));

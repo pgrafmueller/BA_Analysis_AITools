@@ -21,7 +21,7 @@ public class OrderDTOtoOrderEntityMapperImpl implements OrderDTOtoOrderEntityMap
     }
 
     @Override
-    public OrderEntity mapOrderDTOToOrderEntity(OrderDTO orderDTO) {
+    public OrderEntity mapOrderDTOtoOrderEntity(OrderDTO orderDTO) {
         return new OrderEntity(orderDTO.getId(),
                 orderDTO.getItemName(),
                 orderDTO.getAmount(),

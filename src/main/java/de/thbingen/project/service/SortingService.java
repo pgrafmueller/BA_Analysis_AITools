@@ -9,10 +9,10 @@ import java.util.List;
 public interface SortingService {
     List<UserEntity> sortUsersByName(List<UserEntity> users);
 
-    //sort users alphabetically by email
     List<UserEntity> sortUsersByEmail(List<UserEntity> users);
 
     List<UserEntity> sortUsersByDateOfBirthAsc(List<UserEntity> users);
+
     List<UserEntity> sortUsersByDateOfBirthDesc(List<UserEntity> users);
 
     List<UserEntity> sortUsersByStreet(List<UserEntity> users);
