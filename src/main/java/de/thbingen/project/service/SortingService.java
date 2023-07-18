@@ -13,6 +13,7 @@ public interface SortingService {
     List<UserEntity> sortUsersByEmail(List<UserEntity> users);
 
     List<UserEntity> sortUsersByDateOfBirthAsc(List<UserEntity> users);
+
     List<UserEntity> sortUsersByDateOfBirthDesc(List<UserEntity> users);
 
     List<UserEntity> sortUsersByStreet(List<UserEntity> users);

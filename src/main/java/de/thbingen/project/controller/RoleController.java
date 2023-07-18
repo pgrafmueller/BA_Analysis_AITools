@@ -19,5 +19,4 @@ public interface RoleController {
 
     void deleteRole(Long id);
 
-    List<UserDTO> getUsersWithRole(String roleName);
 }
