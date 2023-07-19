@@ -17,9 +17,17 @@ public class RoleDTOtoRoleEntityMapperImpl implements RoleDTOtoRoleEntityMapper 
 
     //map the set of userIds to a set of UserEntities by retrieving the users from the userRepository by their ids
     @Override
-    public Set<UserEntity> mapUserIdsToUserEntities(Set<Long> userIds);
+    public Set<UserEntity> mapUserIdsToUserEntities(Set<Long> userIds) {
+        return userRepository.findAllById(userIds);
+    }
 
     //map the roleDTO to a roleEntity by using the other mapping methods and return it
     @Override
-    public RoleEntity mapRoleDTOtoRoleEntity(RoleDTO roleDTO);
+    public RoleEntity mapRoleDTOtoRoleEntity(RoleDTO roleDTO) {
+        return RoleEntity.builder()
+                .id(roleDTO.getId())
+                .name(roleDTO.getName())
+                .users(mapUserIdsToUserEntities(roleDTO.getUserIds()))
+                .build();
+    }
 }
