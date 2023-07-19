@@ -4,18 +4,27 @@ import de.thbingen.project.mapper.RoleEntityToRoleDTOMapper;
 import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
+import de.thbingen.project.repository.RoleRepository;
+import de.thbingen.project.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class RoleEntityToRoleDTOMapperImpl implements RoleEntityToRoleDTOMapper {
 
-    //read the id from each user entity and add it to a set
     @Override
-    public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities);
+    public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities) {
+        return userEntities.stream().map(UserEntity::getId).collect(Collectors.toSet());
+    }
 
-    //map the role entity to a roleDTO by using the other mapping methods and return it
     @Override
-    public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity);
+    public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity) {
+        return new RoleDTO(roleEntity.getId(),
+                roleEntity.getName(),
+                mapUserEntitiesToUserIds(roleEntity.getUsers()));
+    }
 }
