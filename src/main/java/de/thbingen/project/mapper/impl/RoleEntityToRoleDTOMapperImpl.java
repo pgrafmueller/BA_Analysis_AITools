@@ -13,9 +13,13 @@ public class RoleEntityToRoleDTOMapperImpl implements RoleEntityToRoleDTOMapper 
 
     //read the id from each user entity and add it to a set
     @Override
-    public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities);
+    public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities) {
+        return null;
+    }
 
     //map the role entity to a roleDTO by using the other mapping methods and return it
     @Override
-    public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity);
+    public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity) {
+        return null;
+    }
 }
