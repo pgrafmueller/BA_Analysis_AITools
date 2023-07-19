@@ -22,27 +22,42 @@ public class ErrorHandlerImpl extends ResponseEntityExceptionHandler implements 
     //call the super method to handle the exception
     @Override
     public ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers,
-                                                   HttpStatus status, WebRequest request);
+                                                   HttpStatus status, WebRequest request) {
+        if (body == null) {
+            body = new ErrorResponse(ex.getClass().getSimpleName(), ex.getMessage());
+        }
+        return super.handleExceptionInternal(ex, body, headers, status, request);
+    }
 
     //create a list of strings with the error messages from the exception
     //wrap the list in a map with the key "messages"
     //call the handleExceptionInternal method to handle the exception
     @Override
-    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request);
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request) {
+        return handleExceptionInternal(ex, ex.getBindingResult().getAllErrors(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 
     //call the handleExceptionInternal method to handle the exception with status CONFLICT
     @Override
-    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request);
+    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new ErrorResponse("HttpMessageNotReadableException", ex.getMessage()), new HttpHeaders(), HttpStatus.CONFLICT, request);
+    }
 
     //call the handleExceptionInternal method to handle the exception with status BAD_REQUEST
     @Override
-    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request);
+    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new ErrorResponse("ConstraintViolationException", ex.getMessage()), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 
     //call the handleExceptionInternal method to handle the exception with status NOT_FOUND
     @Override
-    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request);
+    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
+        return handleExceptionInternal(ex, new ErrorResponse("EntityNotFoundException", ex.getMessage()), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
 
     //call the handleExceptionInternal method to handle the exception with status INTERNAL_SERVER_ERROR
     @Override
-    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request);
+    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request) {
+        return handleExceptionInternal(ex, new ErrorResponse("InternalServerError", ex.getMessage()), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
 }
