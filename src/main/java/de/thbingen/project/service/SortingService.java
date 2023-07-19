@@ -19,8 +19,6 @@ public interface SortingService {
 
     List<UserEntity> sortUsersByCity(List<UserEntity> users);
 
-    List<UserEntity> sortUsersByState(List<UserEntity> users);
-
     List<UserEntity> sortUsersByZip(List<UserEntity> users);
 
     List<UserEntity> sortUsersByGender(List<UserEntity> users);
