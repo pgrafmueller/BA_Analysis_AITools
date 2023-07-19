@@ -22,30 +22,44 @@ public class RoleControllerImpl implements RoleController {
 
     //call the roleService to save the role
     @Override
-    public RoleDTO createRole(@Valid RoleDTO roleDto);
+    public RoleDTO createRole(@Valid RoleDTO roleDto) {
+        return roleEntityToRoleDTOMapper.map(roleService.save(roleEntityToRoleDTOMapper.map(roleDto)));
+    }
 
     //call the roleService to get all roles
     @Override
-    public List<RoleDTO> getAllRoles();
+    public List<RoleDTO> getAllRoles() {
+        return roleEntityToRoleDTOMapper.map(roleService.findAll());
+    }
 
     //call the roleService to get the role by its id
     @Override
-    public RoleDTO getRoleById(Long id);
+    public RoleDTO getRoleById(Long id) {
+        return roleEntityToRoleDTOMapper.map(roleService.findById(id));
+    }
 
     //call the roleService to get the role by its name
     @Override
-    public RoleDTO getRoleByName(String name);
+    public RoleDTO getRoleByName(String name) {
+        return roleEntityToRoleDTOMapper.map(roleService.findByName(name));
+    }
 
     //call the roleService to update the role
     @Override
-    public RoleDTO updateRole(Long id, @Valid RoleDTO roleDto);
+    public RoleDTO updateRole(Long id, @Valid RoleDTO roleDto) {
+        return roleEntityToRoleDTOMapper.map(roleService.update(id, roleEntityToRoleDTOMapper.map(roleDto)));
+    }
 
     //call the roleService to delete the role
     @Override
-    public void deleteRole(Long id);
+    public void deleteRole(Long id) {
+        roleService.delete(id);
+    }
 
     //call the userService to get all users with the role
     //if the role does not exist return an empty list
     @Override
-    public List<UserDTO> getUsersWithRole(String roleName);
+    public List<UserDTO> getUsersWithRole(String roleName) {
+        return userService.findAllByRole(roleName);
+    }
 }

@@ -21,27 +21,42 @@ public class OrderControllerImpl implements OrderController {
 
     //call the orderService to save the order
     @Override
-    public OrderDTO createOrder(@Valid OrderDTO orderDto);
+    public OrderDTO createOrder(@Valid OrderDTO orderDto) {
+        return orderEntityToOrderDTOMapper.map(orderService.save(orderDto));
+    }
 
     //call the orderService to get all orders
     @Override
-    public List<OrderDTO> getAllOrders();
+    public List<OrderDTO> getAllOrders() {
+        return orderEntityToOrderDTOMapper.map(orderService.findAll());
+    }
 
     //call the orderService to get the order by its id
     @Override
-    public OrderDTO getOrderById(Long id);
+    public OrderDTO getOrderById(Long id) {
+        return orderEntityToOrderDTOMapper.map(orderService.findById(id));
+    }
 
     //call the orderService to update the order
     @Override
-    public OrderDTO updateOrder(Long id, @Valid OrderDTO orderDto);
+    public OrderDTO updateOrder(Long id, @Valid OrderDTO orderDto) {
+        return orderEntityToOrderDTOMapper.map(orderService.update(id, orderDto));
+    }
 
     //call the orderService to delete the order
     @Override
-    public void deleteOrder(Long id);
+    public void deleteOrder(Long id) {
+        orderService.delete(id);
+    }
 
     //call the userService to get the user from the id
     //if the user is null return an empty list
     //if the user exists call the orderService to get all orders from the user
     @Override
-    public List<OrderDTO> getOrdersByUserId(Long userId);
+    public List<OrderDTO> getOrdersByUserId(Long userId) {
+        if (userService.findById(userId) == null) {
+            return List.of();
+        }
+        return orderEntityToOrderDTOMapper.map(orderService.findAllByUserId(userId));
+    }
 }

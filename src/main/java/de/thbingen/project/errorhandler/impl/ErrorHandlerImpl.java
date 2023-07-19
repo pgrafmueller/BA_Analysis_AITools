@@ -22,27 +22,39 @@ public class ErrorHandlerImpl extends ResponseEntityExceptionHandler implements 
     //call the super method to handle the exception
     @Override
     public ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers,
-                                                   HttpStatus status, WebRequest request);
+                                                   HttpStatus status, WebRequest request) {
+        return super.handleExceptionInternal(ex, body, headers, status, request);
+    }
 
     //create a list of strings with the error messages from the exception
     //wrap the list in a map with the key "messages"
     //call the handleExceptionInternal method to handle the exception
     @Override
-    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request);
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request) {
+        return super.handleExceptionInternal(ex, ex.getBindingResult().getFieldErrors(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 
     //call the handleExceptionInternal method to handle the exception with status CONFLICT
     @Override
-    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request);
+    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request) {
+
+    }
 
     //call the handleExceptionInternal method to handle the exception with status BAD_REQUEST
     @Override
-    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request);
+    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
+
+    }
 
     //call the handleExceptionInternal method to handle the exception with status NOT_FOUND
     @Override
-    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request);
+    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
+
+    }
 
     //call the handleExceptionInternal method to handle the exception with status INTERNAL_SERVER_ERROR
     @Override
-    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request);
+    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request) {
+
+    }
 }
