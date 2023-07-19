@@ -8,12 +8,14 @@ import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
+import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -21,40 +23,60 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
     private final RoleRepository roleRepository;
     private final OrderRepository orderRepository;
 
-    //split the name string into first and last name and return the first name
     @Override
-    public String mapNameToFirstName(String name);
+    public String mapNameToFirstName(String name) {
+        return name.split(" ")[0];
+    }
 
-    //split the name string into first and last name and return the last name
     @Override
-    public String mapNameToLastName(String name);
+    public String mapNameToLastName(String name) {
+        return name.split(" ")[1];
+    }
 
-    //encode the password with base64 and return it
     @Override
-    public String encodePassword(String password);
+    public String encodePassword(String password) {
+        return Base64.getEncoder().encodeToString(password.getBytes());
+    }
 
-    //split the phone numbers string into a list of phone numbers and return it
     @Override
-    public List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList);
+    public List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList) {
+        return List.of(phoneNumbersList.split(","));
+    }
 
-    //map the set of roleIds to a set of RoleEntities by retrieving the roles from the roleRepository by their ids
     @Override
-    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds);
+    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
+        return new HashSet<>(roleRepository.findAllById(roleIds));
+    }
 
-    //map the list of orderIds to a list of OrderEntities by retrieving the orders from the orderRepository by their ids
     @Override
-    public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds);
+    public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
+        return orderRepository.findAllById(orderIds);
+    }
 
-    //map the dateOfBirth string to a LocalDateTime object and return it
-    @Override
-    public LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime);
+     @Override
+    public LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime) {
+        return LocalDateTime.parse(dateTime);
+    }
 
-    //map the addressDTO to an addressEmbeddable and return it
     @Override
-    public Address mapAddressDTOtoAddressEmbeddable(String street, String city, String state, String zip);
+    public Address mapAddressDTOToAddressEmbeddable(String street, String city, String state, String zip) {
+        return new Address(street, city, state, zip);
+    }
 
-    //map the userDTO to a userEntity by using the other mapping methods and return it
     @Override
-    public UserEntity mapUserDTOtoUserEntity(UserDTO userDTO);
+    public UserEntity mapUserDTOToUserEntity(UserDTO userDTO) {
+        return new UserEntity(
+                userDTO.getId(),
+                mapNameToFirstName(userDTO.getName()),
+                mapNameToLastName(userDTO.getName()),
+                userDTO.getEmail(),
+                mapAddressDTOToAddressEmbeddable(userDTO.getStreet(), userDTO.getCity(), userDTO.getState(), userDTO.getZip()),
+                mapPhoneNumbersListToPhoneNumbers(userDTO.getPhoneNumbers()),
+                UserEntity.Gender.valueOf(userDTO.getGender()),
+                mapDateOfBirthStringToLocalDateTime(userDTO.getDateOfBirth()),
+                mapOrderIdsToOrderEntities(userDTO.getOrderIds()),
+                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
+                encodePassword(userDTO.getPassword()));
+    }
 
 }
