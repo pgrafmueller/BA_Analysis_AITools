@@ -20,37 +20,55 @@ public class CalculationServiceImpl implements CalculationService {
 
     //calculate the total order amount by iterating over all orders and adding the order amount to the total order amount
     @Override
-    public double calculateTotalOrderAmount(OrderDTO orderDTO);
+    public double calculateTotalOrderAmount(OrderDTO orderDTO) {
+        return orderDTO.getOrderAmount();
+    }
 
     //calculate the average order amount for a user by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
     @Override
-    public double calculateAverageOrderAmountForUser(UserDTO userDTO);
+    public double calculateAverageOrderAmountForUser(UserDTO userDTO) {
+        return calculateTotalOrderAmount(userDTO) / calculateNumberOfOrdersForUser(userDTO);
+    }
 
     //calculate the total number of orders by iterating over all orders and adding 1 to the total number of orders
     @Override
-    public int calculateTotalNumberOfOrdersForUser(UserDTO userDTO);
+    public int calculateTotalNumberOfOrdersForUser(UserDTO userDTO) {
+        return calculateNumberOfOrdersForUser(userDTO);
+    }
 
     //calculate the average order amount by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
     @Override
-    public double calculateAverageOrderAmount();
+    public double calculateAverageOrderAmount() {
+        return calculateTotalOrderAmount() / calculateNumberOfOrders();
+    }
 
     //calculate the average order amount for users with the specific role by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
     @Override
-    public double calculateAverageOrderAmountForRole(RoleDTO roleDTO);
+    public double calculateAverageOrderAmountForRole(RoleDTO roleDTO) {
+        return calculateTotalOrderAmount() / calculateNumberOfOrders();
+    }
 
     //calculate the number of users by iterating over all users and adding 1 to the number of users
     @Override
-    public int calculateNumberOfUsers();
+    public int calculateNumberOfUsers() {
+        return userRepository.findAll().size();
+    }
 
     //calculate the number of orders by iterating over all orders and adding 1 to the number of orders
     @Override
-    public int calculateNumberOfOrders();
+    public int calculateNumberOfOrders() {
+        return orderRepository.findAll().size();
+    }
 
     //calculate the number of orders for a user by iterating over all orders and adding 1 to the number of orders
     @Override
-    public int calculateNumberOfOrdersForUser(UserDTO userDTO);
+    public int calculateNumberOfOrdersForUser(UserDTO userDTO) {
+        return orderRepository.findAll().size();
+    }
 
     //calculate the number of orders for a user with the specified gender by iterating over all orders and adding 1 to the number of orders
     @Override
-    public double calculateAverageOrderAmountForGender(UserEntity.Gender gender);
+    public double calculateAverageOrderAmountForGender(UserEntity.Gender gender) {
+        return orderRepository.findAll().size();
+    }
 }
