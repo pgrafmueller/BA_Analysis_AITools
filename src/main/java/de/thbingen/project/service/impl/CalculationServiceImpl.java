@@ -17,26 +17,7 @@ public class CalculationServiceImpl implements CalculationService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    @Override
-    public double calculateTotalOrderAmount(OrderDTO orderDTO) {
-        return orderDTO.getPrice() * orderDTO.getQuantity();
-    }
-    @Override
-    public double calculateAverageOrderAmountForUser(UserDTO userDTO) {
-        return calculateTotalOrderAmountForUser(userDTO) / calculateNumberOfOrdersForUser(userDTO);
-    }
-    @Override
-    public int calculateTotalNumberOfOrdersForUser(UserDTO userDTO) {
-        return orderRepository.findAllByUserId(userDTO.getId()).size();
-    }
-    @Override
-    public double calculateAverageOrderAmount() {
-        return calculateTotalOrderAmount() / calculateNumberOfOrders();
-    }
-    @Override
-    public double calculateAverageOrderAmountForRole(RoleDTO roleDTO) {
-        return calculateTotalOrderAmountForRole(roleDTO) / calculateNumberOfOrdersForRole(roleDTO);
-    }
+
     @Override
     public int calculateNumberOfUsers() {
         return userRepository.findAll().size();
@@ -45,12 +26,5 @@ public class CalculationServiceImpl implements CalculationService {
     public int calculateNumberOfOrders() {
         return orderRepository.findAll().size();
     }
-    @Override
-    public int calculateNumberOfOrdersForUser(UserDTO userDTO) {
-        return orderRepository.findAllByUserId(userDTO.getId()).size();
-    }
-    @Override
-    public double calculateAverageOrderAmountForGender(UserEntity.Gender gender) {
-        return calculateTotalOrderAmountForGender(gender) / calculateNumberOfOrdersForGender(gender);
-    }
+
 }

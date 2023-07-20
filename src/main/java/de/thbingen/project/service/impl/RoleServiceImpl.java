@@ -19,10 +19,7 @@ public class RoleServiceImpl implements RoleService {
     private final RoleEntityToRoleDTOMapper roleEntityToRoleDTOMapper;
     private final RoleRepository roleRepository;
 
-    @Override
-    public RoleEntity createRole(RoleDTO roleDTO) {
-        return roleRepository.save(roleDTOtoRoleEntityMapper.map(roleDTO));
-    }
+
     @Override
     public List<RoleEntity> getAllRoles() {
         return roleRepository.findAll();
@@ -31,16 +28,10 @@ public class RoleServiceImpl implements RoleService {
     public RoleEntity getRoleById(Long id) {
         return roleRepository.findById(id).orElse(null);
     }
-    @Override
-    public RoleEntity updateRole(RoleDTO roleDTO) {
-        return roleRepository.save(roleDTOtoRoleEntityMapper.map(roleDTO));
-    }
+
     @Override
     public void deleteRole(Long id) {
         roleRepository.deleteById(id);
     }
-    @Override
-    public List<RoleEntity> getRolesContainingUser(UserEntity userEntity) {
-        return roleRepository.findAllByUsers(userEntity);
-    }
+
 }

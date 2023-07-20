@@ -20,10 +20,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderDTOtoOrderEntityMapper orderDTOtoOrderEntityMapper;
     private final OrderRepository orderRepository;
 
-    @Override
-    public OrderEntity createOrder(OrderDTO orderDTO) {
-        return orderRepository.save(orderDTOtoOrderEntityMapper.map(orderDTO));
-    }
+
     @Override
     public List<OrderEntity> getAllOrders() {
         return orderRepository.findAll();
@@ -32,10 +29,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderEntity getOrderById(Long id) {
         return orderRepository.findById(id).orElse(null);
     }
-    @Override
-    public OrderEntity updateOrder(OrderDTO orderDTO) {
-        return orderRepository.save(orderDTOtoOrderEntityMapper.map(orderDTO));
-    }
+
     @Override
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);

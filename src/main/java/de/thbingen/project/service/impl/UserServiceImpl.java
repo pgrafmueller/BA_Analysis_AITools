@@ -21,10 +21,6 @@ public class UserServiceImpl implements UserService {
     private final UserDTOToUserEntityMapper userDTOToUserEntityMapper;
     private final UserRepository userRepository;
     @Override
-    public UserEntity saveUser(UserDTO userDTO) {
-        return userRepository.save(userDTOToUserEntityMapper.map(userDTO));
-    }
-    @Override
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
@@ -32,10 +28,7 @@ public class UserServiceImpl implements UserService {
     public UserEntity getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
-    @Override
-    public UserEntity updateUser(UserDTO userDTO) {
-        return userRepository.save(userDTOToUserEntityMapper.map(userDTO));
-    }
+
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
@@ -44,12 +37,5 @@ public class UserServiceImpl implements UserService {
     public UserEntity getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-    @Override
-    public List<UserEntity> getUsersByRole(RoleEntity roleEntity) {
-        return userRepository.findByRole(roleEntity);
-    }
-    @Override
-    public List<UserEntity> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate) {
-        return userRepository.findByDateOfBirthBetween(startDate, endDate);
-    }
+
 }
