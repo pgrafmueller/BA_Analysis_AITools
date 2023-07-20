@@ -14,14 +14,5 @@ import javax.validation.ConstraintViolationException;
 public interface ErrorHandler {
     ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers,
                                                    HttpStatus status, WebRequest request);
-    ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request);
-
-    ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request);
-
-    ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request);
-
-    ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request);
-
-    ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request);
 
 }

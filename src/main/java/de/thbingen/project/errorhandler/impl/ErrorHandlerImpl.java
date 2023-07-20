@@ -21,24 +21,5 @@ public class ErrorHandlerImpl extends ResponseEntityExceptionHandler implements 
                                                    HttpStatus status, WebRequest request) {
         return super.handleExceptionInternal(ex, body, headers, status, request);
     }
-    @Override
-    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request) {
-        return super.handleMethodArgumentNotValid(ex, request);
-    }
-    @Override
-    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request) {
-        return super.handleHttpMessageNotReadable(ex, request);
-    }
-    @Override
-    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
-        return super.handleConstraintViolation(ex, request);
-    }
-    @Override
-    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
-        return super.handleEntityNotFoundException(ex, request);
-    }
-    @Override
-    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request) {
-        return super.handleInternalServerError(ex, request);
-    }
+
 }

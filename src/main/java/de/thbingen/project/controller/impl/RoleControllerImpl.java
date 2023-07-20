@@ -16,26 +16,7 @@ import java.util.List;
 public class RoleControllerImpl implements RoleController {
     private final RoleService roleService;
     private final RoleEntityToRoleDTOMapper roleEntityToRoleDTOMapper;
-    @Override
-    public RoleDTO createRole(@Valid RoleDTO roleDto) {
-        return roleEntityToRoleDTOMapper.map(roleService.createRole(roleEntityToRoleDTOMapper.map(roleDto)));
-    }
-    @Override
-    public List<RoleDTO> getAllRoles() {
-        return roleEntityToRoleDTOMapper.map(roleService.getAllRoles());
-    }
-    @Override
-    public RoleDTO getRoleById(Long id) {
-        return roleEntityToRoleDTOMapper.map(roleService.getRoleById(id));
-    }
-    @Override
-    public RoleDTO getRoleByName(String name) {
-        return roleEntityToRoleDTOMapper.map(roleService.getRoleByName(name));
-    }
-    @Override
-    public RoleDTO updateRole(Long id, @Valid RoleDTO roleDto) {
-        return roleEntityToRoleDTOMapper.map(roleService.updateRole(id, roleEntityToRoleDTOMapper.map(roleDto)));
-    }
+
     @Override
     public void deleteRole(Long id) {
         roleService.deleteRole(id);
