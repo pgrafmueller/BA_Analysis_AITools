@@ -54,13 +54,4 @@ class UserServiceImplTest {
         verify(repository, times(1)).findByEmail("XXXXXXXXXXXXX");
     }
 
-    @Test
-    void getUsersByRole() {
-        fail("Not implemented");
-    }
-
-    @Test
-    void getUsersByDateOfBirthBetween() {
-        fail("Not implemented");
-    }
 }

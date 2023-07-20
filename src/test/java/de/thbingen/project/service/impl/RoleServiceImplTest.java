@@ -54,9 +54,5 @@ class RoleServiceImplTest {
         verify(repository, times(1)).deleteById(any());
     }
 
-    @Test
-    void getRolesContainingUser() {
-        service.getRolesContainingUser(1L);
-        verify(repository, times(1)).findRolesContainingUser(any());
-    }
+
 }

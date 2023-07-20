@@ -1,5 +1,7 @@
 package de.thbingen.project.mapper.impl;
 
+import de.thbingen.project.model.dto.RoleDTO;
+import de.thbingen.project.model.entity.RoleEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -16,18 +18,18 @@ class RoleEntityToRoleDTOMapperImplTest {
     @Test
     void mapUserEntitiesToUserIds() {
         assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(null)).isNull();
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isNotNull();
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isInstanceOf(de.thbingen.project.model.dto.RoleDTO.class);
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isEqualTo(new de.thbingen.project.model.dto.RoleDTO());
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isNotEqualTo(new de.thbingen.project.model.dto.RoleDTO());
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isNotNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isInstanceOf(RoleDTO.class);
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isEqualTo(new RoleDTO());
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isNotEqualTo(new RoleDTO());
     }
 
     @Test
     void mapRoleEntityToRoleDTO() {
         assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(null)).isNull();
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isNotNull();
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isInstanceOf(de.thbingen.project.model.dto.RoleDTO.class);
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isEqualTo(new de.thbingen.project.model.dto.RoleDTO());
-        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new de.thbingen.project.model.RoleEntity())).isNotEqualTo(new de.thbingen.project.model.dto.RoleDTO());
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isNotNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isInstanceOf(RoleDTO.class);
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isEqualTo(new RoleDTO());
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new RoleEntity())).isNotEqualTo(new RoleDTO());
     }
 }

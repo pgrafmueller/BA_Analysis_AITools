@@ -37,33 +37,5 @@ class UserDTOToUserEntityMapperImplTest {
         assertThat(userDTOToUserEntityMapper.encodePassword("XXXX")).isEqualTo("test");
     }
 
-    @Test
-    void mapPhoneNumbersListToPhoneNumbers() {
 
-    }
-
-    @Test
-    void mapRoleIdsToRoleEntities() {
-
-    }
-
-    @Test
-    void mapOrderIdsToOrderEntities() {
-
-    }
-
-    @Test
-    void mapDateOfBirthStringToLocalDateTime() {
-
-    }
-
-    @Test
-    void mapAddressDTOtoAddressEmbeddable() {
-
-    }
-
-    @Test
-    void mapUserDTOtoUserEntity() {
-
-    }
 }

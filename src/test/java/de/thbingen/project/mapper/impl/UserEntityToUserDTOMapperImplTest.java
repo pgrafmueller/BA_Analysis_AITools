@@ -19,33 +19,4 @@ class UserEntityToUserDTOMapperImplTest {
         assertThat(userEntityToUserDTOMapper.mapFirstAndLastNameToFullName("test", "test")).isEqualTo("test test");
     }
 
-    @Test
-    void decodeBase64EncodedPassword() {
-
-    }
-
-    @Test
-    void mapPhoneNumbersListToPhoneNumbersString() {
-
-    }
-
-    @Test
-    void mapRoleEntitiesToRoleIds() {
-
-    }
-
-    @Test
-    void mapOrderEntitiesToOrderIds() {
-
-    }
-
-    @Test
-    void mapLocalDateTimeToString() {
-
-    }
-
-    @Test
-    void mapUserEntityToUserDTO() {
-
-    }
 }

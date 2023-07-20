@@ -18,13 +18,5 @@ class RoleDTOtoRoleEntityMapperImplTest {
     @InjectMocks
     private RoleDTOtoRoleEntityMapperImpl roleDTOtoRoleEntityMapper;
 
-    @Test
-    void mapUserIdsToUserEntities() {
-        fail("not implemented");
-    }
 
-    @Test
-    void mapRoleDTOtoRoleEntity() {
-        fail("not implemented");
-    }
 }

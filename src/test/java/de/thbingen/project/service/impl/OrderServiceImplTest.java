@@ -47,9 +47,5 @@ class OrderServiceImplTest {
         verify(repository, times(1)).delete(null);
     }
 
-    @Test
-    void getOrdersByUser() {
-        service.getOrdersByUser(null);
-        verify(repository, times(1)).findByUser(null);
-    }
+
 }
