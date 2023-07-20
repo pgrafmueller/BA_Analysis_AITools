@@ -41,13 +41,9 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return List.of(phoneNumbersList.split(","));
     }
 
-    @Override
-    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return roleRepository.findAllById(roleIds);
-    }
 
     @Override
-    List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
+    public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
         return orderRepository.findAllById(orderIds);
     }
 
@@ -61,18 +57,4 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return new Address(street, city, state, zip);
     }
 
-    @Override
-    public UserEntity mapUserDTOToUserEntity(UserDTO userDTO) {
-        return new UserEntity(
-                userDTO.getId(),
-                userDTO.getName(),
-                userDTO.getEmail(),
-                userDTO.getPassword(),
-                userDTO.getPhoneNumbers(),
-                userDTO.getDateOfBirth(),
-                userDTO.getAddress(),
-                userDTO.getRoles(),
-                userDTO.getOrders()
-        );
-    }
 }

@@ -16,15 +16,5 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class RoleDTOtoRoleEntityMapperImpl implements RoleDTOtoRoleEntityMapper {
     private final UserRepository userRepository;
-    @Override
-    public Set<UserEntity> mapUserIdsToUserEntities(Set<Long> userIds){
-        return userRepository.findAllById(userIds);
-    }
-    @Override
-    public RoleEntity mapRoleDTOToRoleEntity(RoleDTO roleDTO) {
-        return RoleEntity.builder()
-                .name(roleDTO.getName())
-                .description(roleDTO.getDescription())
-                .build();
-    }
+
 }

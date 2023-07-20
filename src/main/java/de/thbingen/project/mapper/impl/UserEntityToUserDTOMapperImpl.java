@@ -36,10 +36,6 @@ public class UserEntityToUserDTOMapperImpl implements UserEntityToUserDTOMapper 
         return sb.toString();
     }
 
-    @Override
-    public Set<Long> mapRoleEntitiesToRoleIds(Set<RoleEntity> roleEntities){
-        return roleEntities.stream().map(RoleEntity::getId).toList();
-    }
 
     @Override
     public List<Long> mapOrderEntitiesToOrderIds(List<OrderEntity> orderEntities) {
@@ -51,17 +47,5 @@ public class UserEntityToUserDTOMapperImpl implements UserEntityToUserDTOMapper 
         return dateTime.toString();
     }
 
-    @Override
-    UserDTO mapUserEntityToUserDTO(UserEntity userEntity){
-        return UserDTO.builder()
-                .id(userEntity.getId())
-                .firstName(userEntity.getFirstName())
-                .lastName(userEntity.getLastName())
-                .email(userEntity.getEmail())
-                .phoneNumbers(userEntity.getPhoneNumbers())
-                .password(userEntity.getPassword())
-                .roles(mapRoleEntitiesToRoleIds(userEntity.getRoles()))
-                .orders(mapOrderEntitiesToOrderIds(userEntity.getOrders()))
-                .build();
-    }
+
 }

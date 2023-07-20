@@ -14,18 +14,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderDTOtoOrderEntityMapperImpl implements OrderDTOtoOrderEntityMapper {
     private final UserRepository userRepository;
+
     @Override
-    public UserEntity mapUserIdToUserEntity(long userId){
-        return userRepository.findById(userId).get();
+    public UserEntity mapUserIdToUserEntity(long userId) {
+        return userRepository.findById(userId).orElse(null);
     }
-    @Override
-    public OrderEntity mapOrderDTOToOrderEntity(OrderDTO orderDTO){
-        OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setOrderId(orderDTO.getOrderId());
-        orderEntity.setOrderDate(orderDTO.getOrderDate());
-        orderEntity.setOrderStatus(orderDTO.getOrderStatus());
-        orderEntity.setOrderTotal(orderDTO.getOrderTotal());
-        orderEntity.setUser(mapUserIdToUserEntity(orderDTO.getUserId()));
-        return orderEntity;
-    }
+
 }

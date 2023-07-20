@@ -16,11 +16,8 @@ public interface UserEntityToUserDTOMapper {
 
     String mapPhoneNumbersListToPhoneNumbersString(List<String> phoneNumbers);
 
-    Set<Long> mapRoleEntitiesToRoleIds(Set<RoleEntity> roleEntities);
-
     List<Long> mapOrderEntitiesToOrderIds(List<OrderEntity> orderEntities);
 
     String mapLocalDateTimeToString(LocalDateTime dateTime);
 
-    UserDTO mapUserEntityToUserDTO(UserEntity userEntity);
 }
