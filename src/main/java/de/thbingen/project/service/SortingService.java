@@ -28,5 +28,4 @@ public interface SortingService {
 
     List<OrderEntity> sortOrdersByUserName(List<OrderEntity> orders);
 
-    List<OrderEntity> sortOrdersByAmount(List<OrderEntity> orders);
 }

@@ -86,9 +86,4 @@ public class SortingServiceImpl implements SortingService {
         return orders;
     }
 
-    @Override
-    public List<OrderEntity> sortOrdersByAmount(List<OrderEntity> orders) {
-        orders.sort((o1, o2) -> o1.getAmount().compareTo(o2.getAmount()));
-        return orders;
-    }
 }
