@@ -45,11 +45,6 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return List.of(phoneNumbersList.split(","));
     }
 
-    //map the set of roleIds to a set of RoleEntities by retrieving the roles from the roleRepository by their ids
-    @Override
-    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return roleRepository.findAllById(roleIds);
-    }
 
     //map the list of orderIds to a list of OrderEntities by retrieving the orders from the orderRepository by their ids
     @Override
@@ -74,25 +69,5 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         );
     }
 
-    //map the userDTO to a userEntity by using the other mapping methods and return it
-    @Override
-    public UserEntity mapUserDTOtoUserEntity(UserDTO userDTO) {
-        return new UserEntity(
-                userDTO.getId(),
-                mapNameToFirstName(userDTO.getName()),
-                mapNameToLastName(userDTO.getName()),
-                encodePassword(userDTO.getPassword()),
-                mapPhoneNumbersListToPhoneNumbers(userDTO.getPhoneNumbers()),
-                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
-                mapOrderIdsToOrderEntities(userDTO.getOrderIds()),
-                mapDateOfBirthStringToLocalDateTime(userDTO.getDateOfBirth()),
-                mapAddressDTOtoAddressEmbeddable(
-                        userDTO.getAddress().getStreet(),
-                        userDTO.getAddress().getCity(),
-                        userDTO.getAddress().getState(),
-                        userDTO.getAddress().getZip()
-                )
-        );
-    }
 
 }
