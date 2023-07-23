@@ -44,11 +44,6 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
     }
 
     @Override
-    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return roleRepository.findAllById(roleIds);
-    }
-
-    @Override
     public List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds) {
         return orderRepository.findAllById(orderIds);
     }
@@ -63,24 +58,5 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return new Address(street, city, state, zip);
     }
 
-    @Override
-    public UserEntity mapUserDTOToUserEntity(UserDTO userDTO) {
-        return new UserEntity(
-                userDTO.getId(),
-                userDTO.getEmail(),
-                userDTO.getPassword(),
-                mapNameToFirstName(userDTO.getName()),
-                mapNameToLastName(userDTO.getName()),
-                mapPhoneNumbersListToPhoneNumbers(userDTO.getPhoneNumbers()),
-                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
-                mapOrderIdsToOrderEntities(userDTO.getOrderIds()),
-                mapDateOfBirthStringToLocalDateTime(userDTO.getDateOfBirth()),
-                mapAddressDTOToAddressEmbeddable(
-                        userDTO.getAddress().getStreet(),
-                        userDTO.getAddress().getCity(),
-                        userDTO.getAddress().getState(),
-                        userDTO.getAddress().getZip()
-                ));
-    }
 
 }

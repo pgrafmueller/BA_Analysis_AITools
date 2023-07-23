@@ -22,5 +22,4 @@ public interface UserEntityToUserDTOMapper {
 
     String mapLocalDateTimeToString(LocalDateTime dateTime);
 
-    UserDTO mapUserEntityToUserDTO(UserEntity userEntity);
 }

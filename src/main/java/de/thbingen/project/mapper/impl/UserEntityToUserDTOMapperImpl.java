@@ -49,17 +49,4 @@ public class UserEntityToUserDTOMapperImpl implements UserEntityToUserDTOMapper 
         return dateTime.toString();
     }
 
-    @Override
-    public UserDTO mapUserEntityToUserDTO(UserEntity userEntity) {
-        return UserDTO.builder()
-                .id(userEntity.getId())
-                .fullName(mapFirstAndLastNameToFullName(userEntity.getFirstName(), userEntity.getLastName()))
-                .email(userEntity.getEmail())
-                .password(decodeBase64EncodedPassword(userEntity.getPassword()))
-                .phoneNumbers(mapPhoneNumbersListToPhoneNumbersString(userEntity.getPhoneNumbers()))
-                .dateOfBirth(mapLocalDateTimeToString(userEntity.getDateOfBirth()))
-                .roles(mapRoleEntitiesToRoleIds(userEntity.getRoles()))
-                .orders(mapOrderEntitiesToOrderIds(userEntity.getOrders()))
-                .build();
-    }
 }

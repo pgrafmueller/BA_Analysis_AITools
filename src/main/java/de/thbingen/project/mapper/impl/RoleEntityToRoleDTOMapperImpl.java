@@ -21,13 +21,5 @@ public class RoleEntityToRoleDTOMapperImpl implements RoleEntityToRoleDTOMapper 
     public Set<Long> mapUserEntitiesToUserIds(Set<UserEntity> userEntities) {
         return userEntities.stream().map(UserEntity::getId).collect(Collectors.toSet());
     }
-
-    @Override
-    public RoleDTO mapRoleEntityToRoleDTO(RoleEntity roleEntity) {
-        return RoleDTO.builder()
-                .id(roleEntity.getId())
-                .name(roleEntity.getName())
-                .userIds(mapUserEntitiesToUserIds(userRepository.findAllByRoleEntitiesContains(roleEntity)))
-                .build();
-    }
 }
+

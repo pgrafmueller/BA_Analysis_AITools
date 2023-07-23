@@ -19,7 +19,6 @@ public interface UserDTOToUserEntityMapper {
 
     List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList);
 
-    Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds);
 
     List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds);
 
@@ -27,5 +26,4 @@ public interface UserDTOToUserEntityMapper {
 
     Address mapAddressDTOToAddressEmbeddable(String street, String city, String state, String zip);
 
-    UserEntity mapUserDTOToUserEntity(UserDTO userDTO);
 }

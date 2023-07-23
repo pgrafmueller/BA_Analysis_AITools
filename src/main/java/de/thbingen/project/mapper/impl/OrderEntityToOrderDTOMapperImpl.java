@@ -20,12 +20,4 @@ public class OrderEntityToOrderDTOMapperImpl implements OrderEntityToOrderDTOMap
         return userEntity.getId();
     }
 
-    @Override
-    public OrderDTO mapOrderEntityToOrderDTO(OrderEntity orderEntity) {
-        return OrderDTO.builder()
-                .id(orderEntity.getId())
-                .name(orderEntity.getName())
-                .userIds(mapUserEntitiesToUserIds(orderRepository.findAllByOrderEntitiesContains(orderEntity)))
-                .build();
-    }
 }
