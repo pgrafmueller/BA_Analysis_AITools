@@ -9,10 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
+
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
 
@@ -24,7 +23,7 @@ class UserServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl service;
-    
+
 
     //create a UserEntity and save it to the repository
     //assert that the repository does not throw an exception

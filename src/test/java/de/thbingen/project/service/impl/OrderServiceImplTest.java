@@ -8,9 +8,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
 
@@ -40,7 +40,6 @@ class OrderServiceImplTest {
         service.getOrderById(1L);
         verify(repository, times(1)).findById(1L);
     }
-
 
 
     //create a OrderEntity and save it to the repository

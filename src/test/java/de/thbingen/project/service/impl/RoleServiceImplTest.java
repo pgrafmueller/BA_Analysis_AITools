@@ -8,9 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -18,7 +15,7 @@ class RoleServiceImplTest {
 
     @Mock
     private RoleRepository repository;
-    
+
     @Mock
     private RoleDTOtoRoleEntityMapper mapper;
 
@@ -44,7 +41,6 @@ class RoleServiceImplTest {
         service.getRoleById(any());
         verify(repository, times(1)).findById(any());
     }
-
 
 
     //create a RoleEntity and save it to the repository
