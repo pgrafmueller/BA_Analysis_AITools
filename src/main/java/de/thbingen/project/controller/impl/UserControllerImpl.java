@@ -3,7 +3,6 @@ package de.thbingen.project.controller.impl;
 import de.thbingen.project.controller.UserController;
 import de.thbingen.project.mapper.UserEntityToUserDTOMapper;
 import de.thbingen.project.model.dto.UserDTO;
-import de.thbingen.project.model.embeddable.Address;
 import de.thbingen.project.service.RoleService;
 import de.thbingen.project.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -11,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -27,7 +23,6 @@ public class UserControllerImpl implements UserController {
     public UserDTO createUser(@Valid UserDTO userDto) {
         return userEntityToUserDTOMapper.mapUserEntityToUserDTO(userService.saveUser(userDto));
     }
-
 
 
     //call the userService to get the user by its id
