@@ -1,7 +1,6 @@
 package de.thbingen.project.errorhandler.exception;
 
 import java.io.Serial;
-import java.util.List;
 
 public class GenericValidationException extends Exception {
     @Serial
