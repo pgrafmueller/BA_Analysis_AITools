@@ -1,9 +1,6 @@
 package de.thbingen.project.service.impl;
 
-import de.thbingen.project.model.dto.OrderDTO;
-import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.dto.UserDTO;
-import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
 import de.thbingen.project.repository.UserRepository;
@@ -24,7 +21,6 @@ public class CalculationServiceImpl implements CalculationService {
     public int calculateTotalNumberOfOrdersForUser(UserDTO userDTO) {
         return orderRepository.findAll().size();
     }
-
 
 
     //calculate the number of users by iterating over all users and adding 1 to the number of users

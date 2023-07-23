@@ -4,8 +4,6 @@ import de.thbingen.project.mapper.RoleEntityToRoleDTOMapper;
 import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
-import de.thbingen.project.repository.RoleRepository;
-import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

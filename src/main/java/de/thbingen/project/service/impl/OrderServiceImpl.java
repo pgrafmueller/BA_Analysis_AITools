@@ -7,7 +7,6 @@ import de.thbingen.project.model.entity.OrderEntity;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.service.OrderService;
-import de.thbingen.project.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

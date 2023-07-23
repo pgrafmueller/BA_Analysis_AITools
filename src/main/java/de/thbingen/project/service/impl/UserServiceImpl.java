@@ -8,7 +8,6 @@ import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.UserRepository;
 import de.thbingen.project.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
