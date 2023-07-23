@@ -25,11 +25,6 @@ public class OrderControllerImpl implements OrderController {
         return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(orderService.saveOrder(orderDto));
     }
 
-    //call the orderService to get all orders
-    @Override
-    public List<OrderDTO> getAllOrders() {
-        return orderEntityToOrderDTOMapper.mapOrderEntitiesToOrderDTOs(orderService.getAllOrders());
-    }
 
     //call the orderService to get the order by its id
     @Override
@@ -49,15 +44,5 @@ public class OrderControllerImpl implements OrderController {
         orderService.deleteOrder(id);
     }
 
-    //call the userService to get the user from the id
-    //if the user is null return an empty list
-    //if the user exists call the orderService to get all orders from the user
-    @Override
-    public List<OrderDTO> getOrdersByUserId(Long userId) {
-        if (userService.getUserById(userId) == null) {
-            return null;
-        } else {
-            return orderEntityToOrderDTOMapper.mapOrderEntitiesToOrderDTOs(orderService.getOrdersByUser(userService.getUserById(userId)));
-        }
-    }
+
 }
