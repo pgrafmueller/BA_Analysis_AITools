@@ -16,12 +16,5 @@ public interface ErrorHandler {
                                                    HttpStatus status, WebRequest request);
     ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request);
 
-    ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request);
-
-    ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request);
-
-    ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request);
-
-    ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request);
 
 }

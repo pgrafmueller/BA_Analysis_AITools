@@ -34,27 +34,4 @@ public class ErrorHandlerImpl extends ResponseEntityExceptionHandler implements 
         return super.handleExceptionInternal(ex, ex.getBindingResult().getFieldErrors(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
-    //call the handleExceptionInternal method to handle the exception with status CONFLICT
-    @Override
-    public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, WebRequest request) {
-
-    }
-
-    //call the handleExceptionInternal method to handle the exception with status BAD_REQUEST
-    @Override
-    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
-
-    }
-
-    //call the handleExceptionInternal method to handle the exception with status NOT_FOUND
-    @Override
-    public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
-
-    }
-
-    //call the handleExceptionInternal method to handle the exception with status INTERNAL_SERVER_ERROR
-    @Override
-    public ResponseEntity<Object> handleInternalServerError(Exception ex, WebRequest request) {
-
-    }
 }
