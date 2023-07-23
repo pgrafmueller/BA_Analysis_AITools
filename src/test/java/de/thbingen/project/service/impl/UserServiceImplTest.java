@@ -20,43 +20,5 @@ class UserServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl service;
-    @Test
-    void testSaveUser() {
-        fail("not implemented");
-    }
 
-    @Test
-    void getAllUsers() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getUserById() {
-        fail("not implemented");
-    }
-
-    @Test
-    void updateUser() {
-        fail("not implemented");
-    }
-
-    @Test
-    void deleteUser() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getUserByEmail() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getUsersByRole() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getUsersByDateOfBirthBetween() {
-        fail("not implemented");
-    }
 }

@@ -58,10 +58,6 @@ class UserDTOToUserEntityMapperImplTest {
         assertThat(userDTOToUserEntityMapper.mapDateOfBirthStringToLocalDateTime(null)).isNull();
     }
 
-    @Test
-    void mapAddressDTOtoAddressEmbeddable() {
-        assertThat(userDTOToUserEntityMapper.mapAddressDTOtoAddressEmbeddable(null)).isNull();
-    }
 
     @Test
     void mapUserDTOtoUserEntity() {

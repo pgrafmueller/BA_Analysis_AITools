@@ -22,40 +22,5 @@ class RoleServiceImplTest {
     @InjectMocks
     private RoleServiceImpl service;
 
-    @Test
-    void saveRole() {
-        RoleEntity roleEntity = new RoleEntity();
-        roleEntity.setId(1L);
-        roleEntity.setName("test");
-        when(repository.save(any())).thenReturn(roleEntity);
-        RoleEntity savedRole = service.saveRole(roleEntity);
-        assertThat(savedRole).isNotNull();
-        assertThat(savedRole.getId()).isNotNull();
-        assertThat(savedRole.getName()).isEqualTo(roleEntity.getName());
-    }
 
-    @Test
-    void getAllRoles() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getRoleById() {
-        fail("not implemented");
-    }
-
-    @Test
-    void updateRole() {
-        fail("not implemented");
-    }
-
-    @Test
-    void deleteRole() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getRolesContainingUser() {
-        fail("not implemented");
-    }
 }

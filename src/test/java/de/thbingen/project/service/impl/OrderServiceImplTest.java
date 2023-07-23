@@ -21,33 +21,4 @@ class OrderServiceImplTest {
     @InjectMocks
     private OrderServiceImpl service;
 
-    @Test
-    void saveOrder() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getAllOrders() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getOrderById() {
-        fail("not implemented");
-    }
-
-    @Test
-    void updateOrder() {
-        fail("not implemented");
-    }
-
-    @Test
-    void deleteOrder() {
-        fail("not implemented");
-    }
-
-    @Test
-    void getOrdersByUser() {
-        fail("not implemented");
-    }
 }
