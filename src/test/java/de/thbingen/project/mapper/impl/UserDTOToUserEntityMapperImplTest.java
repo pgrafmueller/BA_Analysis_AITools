@@ -39,39 +39,39 @@ class UserDTOToUserEntityMapperImplTest {
     void encodePassword() {
     }
 
-    //create a list of arbitrary phonenumbers
-    //expect the same list but as a string concatenated with ','
+    //create a string of arbitrary phone numbers concatenated with ','
+    //assert all the strings in a list as the result
     @Test
     void mapPhoneNumbersListToPhoneNumbers() {
     }
 
     //create some RoleEntities and save them to roleRepository
-    //use the ids of the RoleEntities as input and expect them as a result
+    //use the ids of the RoleEntities as input and assert them as a result
     @Test
     void mapRoleIdsToRoleEntities() {
     }
 
     //create some OrderEntities and save them to orderRepository
-    //use the ids of the OrderEntities as input and expect them as a result
+    //use the ids of the OrderEntities as input and assert them as a result
     @Test
     void mapOrderIdsToOrderEntities() {
     }
 
     //create a string representing a date and time
-    //expect a LocalDateTime corresponding to this string
+    //assert a LocalDateTime corresponding to this string as the result
     @Test
     void mapDateOfBirthStringToLocalDateTime() {
     }
 
-    //create a Address
-    //expect the function to return the address
+    //create an Address
+    //assert the address is returned
     @Test
     void mapAddressDTOtoAddressEmbeddable() {
     }
 
     //create a UserEntity populated with example values
     //create a RoleEntity with the expected values
-    //test if the roleDTOtoRoleEntityMapper converts the DTO to Entity with mapRoleDTOtoRoleEntity
+    //assert that the roleDTOtoRoleEntityMapper converts the DTO to Entity with mapRoleDTOtoRoleEntity
     @Test
     void mapUserDTOtoUserEntity() {
     }

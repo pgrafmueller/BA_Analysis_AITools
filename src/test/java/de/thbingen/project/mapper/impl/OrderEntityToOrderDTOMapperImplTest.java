@@ -15,14 +15,14 @@ class OrderEntityToOrderDTOMapperImplTest {
 
 
     //create a UserEntity with example values
-    //test if the orderEntityToOrderDTOMapper converts the Entity with mapUserEntityToUserId
+    //assert that the orderEntityToOrderDTOMapper converts the Entity with mapUserEntityToUserId
     @Test
     void mapUserEntityToUserId() {
     }
 
     //create a OrderEntity with example values
     //create a OrderDTO with expected values
-    //test if the orderEntityToOrderDTOMapper converts the Entity with mapOrderEntityToOrderDTO
+    //assert that the orderEntityToOrderDTOMapper converts the Entity with mapOrderEntityToOrderDTO
     @Test
     void mapOrderEntityToOrderDTO() {
     }

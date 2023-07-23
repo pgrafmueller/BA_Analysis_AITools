@@ -21,14 +21,14 @@ class RoleDTOtoRoleEntityMapperImplTest {
 
     //create some UserEntity with example values
     //save the userEntity objects in the userRepository
-    //test if the orderEntityToOrderDTOMapper converts the ids to Entity with mapUserIdsToUserEntities
+    //assert that the orderEntityToOrderDTOMapper converts the ids to Entity with mapUserIdsToUserEntities
     @Test
     void mapUserIdsToUserEntities() {
     }
     
     //create a RoleDTO populated with example values
     //create a RoleEntity with the expected values
-    //test if the roleDTOtoRoleEntityMapper converts the DTO to Entity with mapRoleDTOtoRoleEntity
+    //assert that the roleDTOtoRoleEntityMapper converts the DTO to Entity with mapRoleDTOtoRoleEntity
     @Test
     void mapRoleDTOtoRoleEntity() {
     }

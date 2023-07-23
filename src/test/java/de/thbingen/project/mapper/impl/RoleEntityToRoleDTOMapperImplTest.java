@@ -15,14 +15,14 @@ class RoleEntityToRoleDTOMapperImplTest {
     private final RoleEntityToRoleDTOMapperImpl roleEntityToRoleDTOMapper = new RoleEntityToRoleDTOMapperImpl();
 
     //create some UserEntity with example values
-    //test if the roleEntityToRoleDTOMapper converts the Entity with mapUserEntitiesToUserIds
+    //assert that the roleEntityToRoleDTOMapper converts the Entity with mapUserEntitiesToUserIds
     @Test
     void mapUserEntitiesToUserIds() {
     }
     
     //create a RoleEntity with example values
     //create a RoleDTO with expected values
-    //test if the roleEntityToRoleDTOMapper converts the Entity with mapRoleEntityToRoleDTO
+    //assert that the roleEntityToRoleDTOMapper converts the Entity with mapRoleEntityToRoleDTO
     @Test
     void mapRoleEntityToRoleDTO() {
     }

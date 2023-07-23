@@ -22,7 +22,7 @@ class OrderDTOtoOrderEntityMapperImplTest {
 
     //create a OrderDTO populated with example values
     //create a OrderEntity with the expected values
-    //test if the orderDTOtoOrderEntityMapper converts the DTO to Entity with mapOrderDTOtoOrderEntity
+    //assert that the orderDTOtoOrderEntityMapper converts the DTO to Entity with mapOrderDTOtoOrderEntity
     @Test
     void mapOrderDTOtoOrderEntity() {
     }
