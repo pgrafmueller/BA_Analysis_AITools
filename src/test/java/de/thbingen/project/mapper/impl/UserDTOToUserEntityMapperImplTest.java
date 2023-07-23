@@ -8,10 +8,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class UserDTOToUserEntityMapperImplTest {
     @Mock
@@ -21,6 +20,7 @@ class UserDTOToUserEntityMapperImplTest {
 
     @InjectMocks
     private UserDTOToUserEntityMapperImpl userDTOToUserEntityMapper;
+
     @Test
     void mapNameToFirstName() {
         assertThat(userDTOToUserEntityMapper.mapNameToFirstName(null)).isNull();

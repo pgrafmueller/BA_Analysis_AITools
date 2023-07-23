@@ -7,10 +7,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class RoleDTOtoRoleEntityMapperImplTest {
     @Mock
@@ -18,6 +17,7 @@ class RoleDTOtoRoleEntityMapperImplTest {
 
     @InjectMocks
     private RoleDTOtoRoleEntityMapperImpl roleDTOtoRoleEntityMapper;
+
     @Test
     void mapUserIdsToUserEntities() {
         when(userRepository.findById(1L)).thenReturn(null);
