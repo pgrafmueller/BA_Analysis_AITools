@@ -1,19 +1,12 @@
 package de.thbingen.project.mapper.impl;
 
 import de.thbingen.project.mapper.UserEntityToUserDTOMapper;
-import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.model.entity.OrderEntity;
-import de.thbingen.project.model.entity.RoleEntity;
-import de.thbingen.project.model.entity.UserEntity;
-import de.thbingen.project.repository.OrderRepository;
-import de.thbingen.project.repository.RoleRepository;
-import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +18,7 @@ public class UserEntityToUserDTOMapperImpl implements UserEntityToUserDTOMapper 
     }
 
     @Override
-    public String decodeBase64EncodedPassword(String password){
+    public String decodeBase64EncodedPassword(String password) {
         return new String(java.util.Base64.getDecoder().decode(password));
     }
 
