@@ -1,7 +1,6 @@
 package de.thbingen.project.service.impl;
 
 import de.thbingen.project.errorhandler.exception.GenericValidationException;
-import de.thbingen.project.model.dto.OrderDTO;
 import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.service.ValidationService;
@@ -29,7 +28,7 @@ public class ValidationServiceImpl implements ValidationService {
     //validate if the role is not null and if the name of the role is unique
     @Override
     public void validateRoleUniqueName(RoleDTO roleDTO) throws GenericValidationException {
-          if (roleDTO == null) {
+        if (roleDTO == null) {
             throw new GenericValidationException("Role must not be null");
         }
         if (roleDTO.getName() == null) {

@@ -2,9 +2,7 @@ package de.thbingen.project.service.impl;
 
 import de.thbingen.project.mapper.RoleDTOtoRoleEntityMapper;
 import de.thbingen.project.mapper.RoleEntityToRoleDTOMapper;
-import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.entity.RoleEntity;
-import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.RoleRepository;
 import de.thbingen.project.service.RoleService;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +36,6 @@ public class RoleServiceImpl implements RoleService {
     public void deleteRole(Long id) {
         roleRepository.deleteById(id);
     }
-
 
 
     //get the role from the database by its name and return it

@@ -1,7 +1,6 @@
 package de.thbingen.project.service.impl;
 
 import de.thbingen.project.model.entity.OrderEntity;
-import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
@@ -18,7 +17,6 @@ public class FilterServiceImpl implements FilterService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final OrderRepository orderRepository;
-
 
 
     //get all orders from the repository and filter them by the user and return them

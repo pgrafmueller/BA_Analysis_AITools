@@ -1,7 +1,5 @@
 package de.thbingen.project.service.impl;
 
-import de.thbingen.project.model.dto.OrderDTO;
-import de.thbingen.project.model.dto.RoleDTO;
 import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
