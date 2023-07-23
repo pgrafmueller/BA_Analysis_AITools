@@ -33,23 +33,6 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return name.split(" ")[1];
     }
 
-    //encode the password with base64 and return it
-    @Override
-    public String encodePassword(String password) {
-        return Base64Encoder.encode(password);
-    }
-
-    //split the phone numbers string into a list of phone numbers and return it
-    @Override
-    public List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList) {
-        return phoneNumbersList.split(";");
-    }
-
-    //map the set of roleIds to a set of RoleEntities by retrieving the roles from the roleRepository by their ids
-    @Override
-    public Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds) {
-        return roleRepository.findAllById(roleIds);
-    }
 
     //map the list of orderIds to a list of OrderEntities by retrieving the orders from the orderRepository by their ids
     @Override
@@ -69,19 +52,4 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return new Address(street, city, state, zip);
     }
 
-    //map the userDTO to a userEntity by using the other mapping methods and return it
-    @Override
-    public UserEntity mapUserDTOtoUserEntity(UserDTO userDTO) {
-        return new UserEntity(
-                userDTO.getId(),
-                userDTO.getName(),
-                userDTO.getEmail(),
-                userDTO.getPassword(),
-                userDTO.getPhoneNumbers(),
-                userDTO.getDateOfBirth(),
-                userDTO.getAddress(),
-                mapRoleIdsToRoleEntities(userDTO.getRoleIds()),
-                mapOrderIdsToOrderEntities(userDTO.getOrderIds())
-        );
-    }
 }

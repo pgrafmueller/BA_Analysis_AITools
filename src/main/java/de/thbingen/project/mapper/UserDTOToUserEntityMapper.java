@@ -15,17 +15,9 @@ public interface UserDTOToUserEntityMapper {
 
     String mapNameToLastName(String name);
 
-    String encodePassword(String password);
-
-    List<String> mapPhoneNumbersListToPhoneNumbers(String phoneNumbersList);
-
-    Set<RoleEntity> mapRoleIdsToRoleEntities(Set<Long> roleIds);
-
     List<OrderEntity> mapOrderIdsToOrderEntities(List<Long> orderIds);
 
     LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime);
 
     Address mapAddressDTOtoAddressEmbeddable(String street, String city, String state, String zip);
-
-    UserEntity mapUserDTOtoUserEntity(UserDTO userDTO);
 }
