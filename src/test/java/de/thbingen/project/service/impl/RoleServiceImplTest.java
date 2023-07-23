@@ -32,6 +32,10 @@ class RoleServiceImplTest {
     //assert the entity to be the same
     @Test
     void saveRole() {
+        when(mapper.convert(any())).thenReturn(any());
+        service.saveRole(any());
+        verify(repository, times(1)).save(any());
+        verify(mapper, times(1)).convert(any());
     }
 
     //create some RoleEntity and save them in the repository
@@ -39,12 +43,18 @@ class RoleServiceImplTest {
     //assert them to be the same list of elements
     @Test
     void getAllRoles() {
+        when(repository.findAll()).thenReturn(any());
+        service.getAllRoles();
+        verify(repository, times(1)).findAll();
     }
 
     //create a RoleEntity and save it in the repository
     //when the repository is called with its id, return the entity
     @Test
     void getRoleById() {
+        when(repository.findById(any())).thenReturn(any());
+        service.getRoleById(any());
+        verify(repository, times(1)).findById(any());
     }
 
     //create a RoleEntity and save it to the repository
@@ -53,12 +63,19 @@ class RoleServiceImplTest {
     //assert that the save function of the repository is called and return the updated entity
     @Test
     void updateRole() {
+        when(repository.save(any())).thenReturn(any());
+        when(mapper.convert(any())).thenReturn(any());
+        service.updateRole(any());
+        verify(repository, times(1)).save(any());
+        verify(mapper, times(1)).convert(any());
     }
 
     //create a RoleEntity and save it to the repository
     //assert that the repository does not throw an exception
     @Test
     void deleteRole() {
+        service.deleteRole(1L);
+        verify(repository, times(1)).deleteById(1L);
     }
 
     //create some RoleEntity and save them to the repository
@@ -67,5 +84,8 @@ class RoleServiceImplTest {
     //assert that getRolesContainingUser returns the set of roles
     @Test
     void getRolesContainingUser() {
+        when(repository.findAll()).thenReturn(any());
+        service.getRolesContainingUser(any());
+        verify(repository, times(1)).findAll();
     }
 }

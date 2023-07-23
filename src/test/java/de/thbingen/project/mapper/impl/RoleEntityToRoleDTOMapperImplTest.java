@@ -18,6 +18,14 @@ class RoleEntityToRoleDTOMapperImplTest {
     //assert that the roleEntityToRoleDTOMapper converts the Entity with mapUserEntitiesToUserIds
     @Test
     void mapUserEntitiesToUserIds() {
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(null)).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object())).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{null, null})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{new Object(), new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{new Object(), new Object(), new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapUserEntitiesToUserIds(new Object[]{new Object(), new Object(), new Object(), new Object(), new Object(), new Object()})).isNull();
     }
     
     //create a RoleEntity with example values
@@ -25,5 +33,13 @@ class RoleEntityToRoleDTOMapperImplTest {
     //assert that the roleEntityToRoleDTOMapper converts the Entity with mapRoleEntityToRoleDTO
     @Test
     void mapRoleEntityToRoleDTO() {
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(null)).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object())).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{null, null})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{new Object(), new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{new Object(), new Object(), new Object(), new Object(), new Object()})).isNull();
+        assertThat(roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(new Object[]{new Object(), new Object(), new Object(), new Object(), new Object(), new Object()})).isNull();
     }
 }

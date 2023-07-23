@@ -18,6 +18,7 @@ class OrderEntityToOrderDTOMapperImplTest {
     //assert that the orderEntityToOrderDTOMapper converts the Entity with mapUserEntityToUserId
     @Test
     void mapUserEntityToUserId() {
+        assertThat(orderEntityToOrderDTOMapper.mapUserEntityToUserId(null)).isNull();
     }
 
     //create a OrderEntity with example values
@@ -25,5 +26,6 @@ class OrderEntityToOrderDTOMapperImplTest {
     //assert that the orderEntityToOrderDTOMapper converts the Entity with mapOrderEntityToOrderDTO
     @Test
     void mapOrderEntityToOrderDTO() {
+        assertThat(orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(null)).isNull();
     }
 }
