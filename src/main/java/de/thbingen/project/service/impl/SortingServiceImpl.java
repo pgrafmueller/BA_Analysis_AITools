@@ -1,8 +1,5 @@
 package de.thbingen.project.service.impl;
 
-import de.thbingen.project.model.dto.OrderDTO;
-import de.thbingen.project.model.dto.RoleDTO;
-import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.model.entity.OrderEntity;
 import de.thbingen.project.model.entity.RoleEntity;
 import de.thbingen.project.model.entity.UserEntity;
@@ -57,11 +54,13 @@ public class SortingServiceImpl implements SortingService {
         users.sort((o1, o2) -> o1.getAddress().getCity().compareTo(o2.getAddress().getCity()));
         return users;
     }
+
     @Override
     public List<UserEntity> sortUsersByState(List<UserEntity> users) {
         users.sort((o1, o2) -> o1.getAddress().getState().compareTo(o2.getAddress().getState()));
         return users;
     }
+
     @Override
     public List<UserEntity> sortUsersByZip(List<UserEntity> users) {
         users.sort((o1, o2) -> o1.getAddress().getZip().compareTo(o2.getAddress().getZip()));

@@ -10,7 +10,6 @@ import de.thbingen.project.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.Role;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -19,26 +18,32 @@ public class RoleServiceImpl implements RoleService {
     private final RoleDTOtoRoleEntityMapper roleDTOtoRoleEntityMapper;
     private final RoleEntityToRoleDTOMapper roleEntityToRoleDTOMapper;
     private final RoleRepository roleRepository;
+
     @Override
     public RoleEntity createRole(RoleDTO roleDTO) {
         return roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOtoRoleEntity(roleDTO));
     }
+
     @Override
     public List<RoleEntity> getAllRoles() {
         return roleRepository.findAll();
     }
+
     @Override
     public RoleEntity getRoleById(Long id) {
         return roleRepository.findById(id).orElse(null);
     }
+
     @Override
     public RoleEntity updateRole(RoleDTO roleDTO) {
         return roleRepository.save(roleDTOtoRoleEntityMapper.mapRoleDTOtoRoleEntity(roleDTO));
     }
+
     @Override
     public void deleteRole(Long id) {
         roleRepository.deleteById(id);
     }
+
     @Override
     public List<RoleEntity> getRolesContainingUser(UserEntity userEntity) {
         return roleRepository.findAllByUsersContaining(userEntity);

@@ -19,34 +19,42 @@ public class UserServiceImpl implements UserService {
     private final UserEntityToUserDTOMapper userEntityToUserDTOMapper;
     private final UserDTOToUserEntityMapper userDTOToUserEntityMapper;
     private final UserRepository userRepository;
+
     @Override
     public UserEntity saveUser(UserDTO userDTO) {
         return userRepository.save(userDTOToUserEntityMapper.mapUserDTOtoUserEntity(userDTO));
     }
+
     @Override
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
+
     @Override
     public UserEntity getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
+
     @Override
     public UserEntity updateUser(UserDTO userDTO) {
         return userRepository.save(userDTOToUserEntityMapper.mapUserDTOtoUserEntity(userDTO));
     }
+
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
     @Override
     public UserEntity getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
     @Override
     public List<UserEntity> getUsersByRole(RoleEntity roleEntity) {
         return userRepository.findAllByRolesContaining(roleEntity);
     }
+
     @Override
     public List<UserEntity> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate) {
         return userRepository.findAllByDateOfBirthBetween(startDate, endDate);
