@@ -1,21 +1,16 @@
 package de.thbingen.project.mapper.impl;
 
 import de.thbingen.project.mapper.UserDTOToUserEntityMapper;
-import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.model.embeddable.Address;
 import de.thbingen.project.model.entity.OrderEntity;
-import de.thbingen.project.model.entity.RoleEntity;
-import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
-import de.thbingen.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -48,7 +43,7 @@ public class UserDTOToUserEntityMapperImpl implements UserDTOToUserEntityMapper 
         return orderRepository.findAllById(orderIds);
     }
 
-     @Override
+    @Override
     public LocalDateTime mapDateOfBirthStringToLocalDateTime(String dateTime) {
         return LocalDateTime.parse(dateTime);
     }
