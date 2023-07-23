@@ -7,13 +7,11 @@ import de.thbingen.project.model.entity.UserEntity;
 import java.util.List;
 
 public interface OrderService {
-    OrderEntity createOrder(OrderDTO orderDTO);
 
     List<OrderEntity> getAllOrders();
 
     OrderEntity getOrderById(Long id);
 
-    OrderEntity updateOrder(OrderDTO orderDTO);
 
     void deleteOrder(Long id);
 

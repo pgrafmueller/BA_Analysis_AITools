@@ -20,11 +20,6 @@ public class OrderServiceImpl implements OrderService {
     private final OrderDTOtoOrderEntityMapper orderDTOtoOrderEntityMapper;
     private final OrderRepository orderRepository;
 
-    //map the orderDTO to an orderEntity by using the mapper and save it in the database
-    @Override
-    public OrderEntity createOrder(OrderDTO orderDTO) {
-        return orderRepository.save(orderDTOtoOrderEntityMapper.map(orderDTO));
-    }
 
     //get all orders from the database and return them
     @Override
@@ -38,11 +33,6 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findById(id).orElse(null);
     }
 
-    //map the orderDTO to an orderEntity by using the mapper and update it in the database
-    @Override
-    public OrderEntity updateOrder(OrderDTO orderDTO) {
-        return orderRepository.save(orderDTOtoOrderEntityMapper.map(orderDTO));
-    }
 
     //delete the order from the database by its id
     @Override

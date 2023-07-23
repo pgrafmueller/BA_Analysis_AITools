@@ -8,19 +8,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UserService {
-    UserEntity saveUser(UserDTO userDTO);
-
     List<UserEntity> getAllUsers();
 
     UserEntity getUserById(Long id);
 
-    UserEntity updateUser(UserDTO userDTO);
 
     void deleteUser(Long id);
 
     UserEntity getUserByEmail(String email);
-
-    List<UserEntity> getUsersByRole(RoleEntity roleEntity);
 
     List<UserEntity> getUsersByDateOfBirthBetween(LocalDateTime startDate, LocalDateTime endDate);
 

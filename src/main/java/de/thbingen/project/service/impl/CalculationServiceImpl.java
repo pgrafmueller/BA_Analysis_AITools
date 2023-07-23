@@ -18,17 +18,6 @@ public class CalculationServiceImpl implements CalculationService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    //calculate the total order amount by iterating over all orders and adding the order amount to the total order amount
-    @Override
-    public double calculateTotalOrderAmount(OrderDTO orderDTO) {
-        return orderDTO.getOrderAmount();
-    }
-
-    //calculate the average order amount for a user by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
-    @Override
-    public double calculateAverageOrderAmountForUser(UserDTO userDTO) {
-        return calculateTotalOrderAmount(userDTO) / calculateNumberOfOrdersForUser(userDTO);
-    }
 
     //calculate the total number of orders by iterating over all orders and adding 1 to the total number of orders
     @Override
@@ -36,17 +25,6 @@ public class CalculationServiceImpl implements CalculationService {
         return calculateNumberOfOrdersForUser(userDTO);
     }
 
-    //calculate the average order amount by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
-    @Override
-    public double calculateAverageOrderAmount() {
-        return calculateTotalOrderAmount() / calculateNumberOfOrders();
-    }
-
-    //calculate the average order amount for users with the specific role by iterating over all orders and adding the order amount to the total order amount and dividing it by the number of orders
-    @Override
-    public double calculateAverageOrderAmountForRole(RoleDTO roleDTO) {
-        return calculateTotalOrderAmount() / calculateNumberOfOrders();
-    }
 
     //calculate the number of users by iterating over all users and adding 1 to the number of users
     @Override

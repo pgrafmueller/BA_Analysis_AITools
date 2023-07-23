@@ -21,12 +21,6 @@ public class UserServiceImpl implements UserService {
     private final UserDTOToUserEntityMapper userDTOToUserEntityMapper;
     private final UserRepository userRepository;
 
-    //map the userDTO to a userEntity by using the mapper and save it in the database
-    @Override
-    public UserEntity saveUser(UserDTO userDTO) {
-        return userRepository.save(userDTOToUserEntityMapper.map(userDTO));
-    }
-
     //get all users from the database and return them
     @Override
     public List<UserEntity> getAllUsers() {
@@ -39,11 +33,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    //map the userDTO to a userEntity by using the mapper and update it in the database
-    @Override
-    public UserEntity updateUser(UserDTO userDTO) {
-        return userRepository.save(userDTOToUserEntityMapper.map(userDTO));
-    }
 
     //delete the user from the database by its id
     @Override
@@ -55,12 +44,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity getUserByEmail(String email) {
         return userRepository.findByEmail(email);
-    }
-
-    //get all users from the database with the given role and return them
-    @Override
-    public List<UserEntity> getUsersByRole(RoleEntity roleEntity) {
-        return userRepository.findAllByRole(roleEntity);
     }
 
     //get all users from the database with a date of birth between the given dates and return them

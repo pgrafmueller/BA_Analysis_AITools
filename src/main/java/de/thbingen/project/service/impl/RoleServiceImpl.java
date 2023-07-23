@@ -19,11 +19,6 @@ public class RoleServiceImpl implements RoleService {
     private final RoleEntityToRoleDTOMapper roleEntityToRoleDTOMapper;
     private final RoleRepository roleRepository;
 
-    //map the roleDTO to a roleEntity by using the mapper and save it in the database
-    @Override
-    public RoleEntity createRole(RoleDTO roleDTO) {
-        return roleRepository.save(roleDTOtoRoleEntityMapper.map(roleDTO));
-    }
 
     //get all roles from the database and return them
     @Override
@@ -37,11 +32,6 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findById(id).orElse(null);
     }
 
-    //map the roleDTO to a roleEntity by using the mapper and update it in the database
-    @Override
-    public RoleEntity updateRole(RoleDTO roleDTO) {
-        return roleRepository.save(roleDTOtoRoleEntityMapper.map(roleDTO));
-    }
 
     //delete the role from the database by its id
     @Override
@@ -49,11 +39,7 @@ public class RoleServiceImpl implements RoleService {
         roleRepository.deleteById(id);
     }
 
-    //get all roles from the database containing the given user and return them
-    @Override
-    public List<RoleEntity> getRolesContainingUser(UserEntity userEntity) {
-        return roleRepository.findAllByUsers(userEntity);
-    }
+
 
     //get the role from the database by its name and return it
     public RoleEntity getRoleByName(String name) {
