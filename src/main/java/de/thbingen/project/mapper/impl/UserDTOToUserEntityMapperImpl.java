@@ -1,11 +1,8 @@
 package de.thbingen.project.mapper.impl;
 
 import de.thbingen.project.mapper.UserDTOToUserEntityMapper;
-import de.thbingen.project.model.dto.UserDTO;
 import de.thbingen.project.model.embeddable.Address;
 import de.thbingen.project.model.entity.OrderEntity;
-import de.thbingen.project.model.entity.RoleEntity;
-import de.thbingen.project.model.entity.UserEntity;
 import de.thbingen.project.repository.OrderRepository;
 import de.thbingen.project.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
