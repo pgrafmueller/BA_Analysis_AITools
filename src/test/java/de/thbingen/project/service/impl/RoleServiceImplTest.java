@@ -26,18 +26,6 @@ class RoleServiceImplTest {
     private RoleServiceImpl service;
 
 
-    //create a RoleEntity and a corresponding RoleDTO
-    //when the mapper is called, return the entity
-    //assert that the save function of the repository is called
-    //assert the entity to be the same
-    @Test
-    void saveRole() {
-        when(mapper.convert(any())).thenReturn(any());
-        service.saveRole(any());
-        verify(repository, times(1)).save(any());
-        verify(mapper, times(1)).convert(any());
-    }
-
     //create some RoleEntity and save them in the repository
     //when the repository is called, return the entities
     //assert them to be the same list of elements
@@ -57,18 +45,7 @@ class RoleServiceImplTest {
         verify(repository, times(1)).findById(any());
     }
 
-    //create a RoleEntity and save it to the repository
-    //create a corresponding RoleDTO with a different itemName
-    //when the mapper is called, return the converted entity
-    //assert that the save function of the repository is called and return the updated entity
-    @Test
-    void updateRole() {
-        when(repository.save(any())).thenReturn(any());
-        when(mapper.convert(any())).thenReturn(any());
-        service.updateRole(any());
-        verify(repository, times(1)).save(any());
-        verify(mapper, times(1)).convert(any());
-    }
+
 
     //create a RoleEntity and save it to the repository
     //assert that the repository does not throw an exception

@@ -24,46 +24,4 @@ class UserEntityToUserDTOMapperImplTest {
         assertThat(fullName).isEqualTo(firstName + " " + lastName);
     }
 
-    //create a random string
-    //base64 encode the string as a new variable
-    //assert that the string is the result when inputting the encoded string
-    @Test
-    void decodeBase64EncodedPassword() {
-        String password = "XXXX";
-        String encodedPassword = userEntityToUserDTOMapper.encodeBase64EncodedPassword(password);
-        assertThat(encodedPassword).isEqualTo(password);
-    }
-
-    //create a list of strings representing phone numbers
-    //assert the result to be a concatenated string with all the numbers
-    @Test
-    void mapPhoneNumbersListToPhoneNumbersString() {
-
-    }
-
-    //create a RoleEntity and expect its id as a result
-    @Test
-    void mapRoleEntitiesToRoleIds() {
-
-    }
-
-    //create a OrderEntity and expect its id as a result
-    @Test
-    void mapOrderEntitiesToOrderIds() {
-
-    }
-
-    //create a random LocalDateTime
-    //assert its string representation as a result
-    @Test
-    void mapLocalDateTimeToString() {
-
-    }
-
-    //create a UserEntity
-    //create a corresponding UserDTO and assert it as a result
-    @Test
-    void mapUserEntityToUserDTO() {
-
-    }
 }

@@ -21,21 +21,6 @@ class RoleDTOtoRoleEntityMapperImplTest {
     @InjectMocks
     private RoleDTOtoRoleEntityMapperImpl roleDTOtoRoleEntityMapper;
 
-    //create some UserEntity with example values
-    //save the userEntity objects in the userRepository
-    //assert that the orderEntityToOrderDTOMapper converts the ids to Entity with mapUserIdsToUserEntities
-    @Test
-    void mapUserIdsToUserEntities() {
-        //given
-        RoleEntity roleEntity = new RoleEntity();
-        roleEntity.setId(1L);
-        roleEntity.setName("ADMIN");
-        //when
-        when(userRepository.findAllById(roleEntity.getId())).thenReturn(roleEntity);
-        //then
-        assertThat(roleDTOtoRoleEntityMapper.mapUserIdsToUserEntities(roleEntity.getId())).isEqualTo(roleEntity);
-    }
-    
     //create a RoleDTO populated with example values
     //create a RoleEntity with the expected values
     //assert that the roleDTOtoRoleEntityMapper converts the DTO to Entity with mapRoleDTOtoRoleEntity

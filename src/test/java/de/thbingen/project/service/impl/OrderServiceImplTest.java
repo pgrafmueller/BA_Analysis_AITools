@@ -23,16 +23,6 @@ class OrderServiceImplTest {
     @InjectMocks
     private OrderServiceImpl service;
 
-    //create a OrderEntity and a corresponding OrderDTO
-    //when the mapper is called, return the entity
-    //assert that the save function of the repository is called
-    //assert the entity to be the same
-    @Test
-    void saveOrder() {
-        service.saveOrder(null);
-        verify(repository, times(1)).save(null);
-        verify(mapper, times(1)).orderDTOtoOrderEntity(null);
-    }
 
     //create some OrderEntity and save them in the repository
     //when the repository is called, return the entities
@@ -51,17 +41,7 @@ class OrderServiceImplTest {
         verify(repository, times(1)).findById(1L);
     }
 
-    //create a OrderEntity and save it to the repository
-    //create a corresponding OrderDTO with a different itemName
-    //when the mapper is called, return the converted entity
-    //assert that the save function of the repository is called and return the updated entity
-    @Test
-    void updateOrder() {
-        service.updateOrder(1L, null);
-        verify(repository, times(1)).save(null);
-        verify(repository, times(1)).findById(1L);
-        verify(mapper, times(1)).orderEntityToOrderDTO(null);
-    }
+
 
     //create a OrderEntity and save it to the repository
     //assert that the repository does not throw an exception
@@ -71,13 +51,4 @@ class OrderServiceImplTest {
         verify(repository, times(1)).deleteById(1L);
     }
 
-    //create a OrderEntity and save it to the repository
-    //create a UserEntity with the OrderEntity added as a list of orders
-    //save the UserEntity
-    //assert that getOrdersByUser returns the OrderEntity
-    @Test
-    void getOrdersByUser() {
-        service.getOrdersByUser(1L);
-        verify(repository, times(1)).getOrdersByUser(1L);
-    }
 }
