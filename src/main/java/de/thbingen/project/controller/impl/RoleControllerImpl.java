@@ -21,18 +21,12 @@ public class RoleControllerImpl implements RoleController {
     public RoleDTO createRole(@Valid RoleDTO roleDto) {
         return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(roleService.saveRole(roleDto));
     }
-    @Override
-    public List<RoleDTO> getAllRoles() {
-        return roleEntityToRoleDTOMapper.mapRoleEntityListToRoleDTOList(roleService.getAllRoles());
-    }
+
     @Override
     public RoleDTO getRoleById(Long id) {
         return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(roleService.getRoleById(id));
     }
-    @Override
-    public RoleDTO getRoleByName(String name) {
-        return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(roleService.getRoleByName(name));
-    }
+
     @Override
     public RoleDTO updateRole(Long id, @Valid RoleDTO roleDto) {
         return roleEntityToRoleDTOMapper.mapRoleEntityToRoleDTO(roleService.updateRole(roleDto));

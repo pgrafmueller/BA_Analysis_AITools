@@ -20,10 +20,7 @@ public class OrderControllerImpl implements OrderController {
     public OrderDTO createOrder(@Valid OrderDTO orderDto) {
         return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(orderService.saveOrder(orderDto));
     }
-    @Override
-    public List<OrderDTO> getAllOrders() {
-        return orderEntityToOrderDTOMapper.mapOrderEntityListToOrderDTOList(orderService.getAllOrders());
-    }
+
     @Override
     public OrderDTO getOrderById(Long id) {
         return orderEntityToOrderDTOMapper.mapOrderEntityToOrderDTO(orderService.getOrderById(id));
@@ -36,8 +33,5 @@ public class OrderControllerImpl implements OrderController {
     public void deleteOrder(Long id) {
         orderService.deleteOrder(id);
     }
-    @Override
-    public List<OrderDTO> getOrdersByUserId(Long userId) {
-        return orderEntityToOrderDTOMapper.mapOrderEntityListToOrderDTOList(orderService.getOrdersByUserId(userId));
-    }
+
 }
